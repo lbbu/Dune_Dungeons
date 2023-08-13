@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   RotationSpeed: 15
-  playerRadius: 0.7
+  playerRadius: 0.5
   playerHeight: 1
   gameInput: {fileID: 0}
 --- !u!1 &2916537966245615069
