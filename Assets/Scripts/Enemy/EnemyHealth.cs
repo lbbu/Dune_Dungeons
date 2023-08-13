@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour,IEnemy
 {
    [SerializeField] int healthPoints = 10;
     bool isDead = false;
@@ -15,9 +15,11 @@ public class EnemyHealth : MonoBehaviour
     public void loseHealth(int WeaopnDamage)
     {
         healthPoints -= WeaopnDamage;
-        if(healthPoints < 0) 
+        if(healthPoints <= 0) 
         {
             isDead = true;
         }
     }
+
+   
 }
