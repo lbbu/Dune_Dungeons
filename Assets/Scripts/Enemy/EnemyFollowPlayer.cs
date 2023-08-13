@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyFollowPlayer : Enemy
+public class EnemyFollowPlayer : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] float range = 8f;
