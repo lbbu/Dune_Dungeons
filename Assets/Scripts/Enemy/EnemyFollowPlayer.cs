@@ -5,6 +5,7 @@ public class EnemyFollowPlayer : MonoBehaviour, IEnemy
 {
     [SerializeField]  Transform player;
     [SerializeField] float range = 14f;
+    [SerializeField] float stopChasTargetRange = 5f;
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked = false;
     NavMeshAgent agent;
@@ -48,7 +49,7 @@ public class EnemyFollowPlayer : MonoBehaviour, IEnemy
 
     void stopChasTarget()
     {
-        if(distanceToTarget >= 17)
+        if(distanceToTarget >= stopChasTargetRange)
         {
             isProvoked=false;
         }
