@@ -3,8 +3,8 @@ using UnityEngine.AI;
 
 public class EnemyFollowPlayer : MonoBehaviour, IEnemy
 {
-    [SerializeField] Transform target;
-    [SerializeField] float range = 8f;
+    [SerializeField]  Transform player;
+    [SerializeField] float range = 14f;
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked = false;
     NavMeshAgent agent;
@@ -21,7 +21,7 @@ public class EnemyFollowPlayer : MonoBehaviour, IEnemy
     }
     private void Update()
     {
-        distanceToTarget = Vector3.Distance(target.position, transform.position);
+        distanceToTarget = Vector3.Distance(player.position, transform.position);
         if (isProvoked)
         {
             EngageTarget();
@@ -29,6 +29,7 @@ public class EnemyFollowPlayer : MonoBehaviour, IEnemy
         {
             isProvoked = true;
         }
+        stopChasTarget();
     }
 
     private void EngageTarget()
@@ -42,15 +43,28 @@ public class EnemyFollowPlayer : MonoBehaviour, IEnemy
 
     void chaseTarget()
     {
-        agent.SetDestination(target.position); 
+        agent.SetDestination(player.position); 
+    }
+
+    void stopChasTarget()
+    {
+        if(distanceToTarget >= 17)
+        {
+            isProvoked=false;
+        }
     }
     void faceTarget()
     {
         if (distanceToTarget <= range / 2)
         {
-            Vector3 direction = (target.position - transform.position).normalized;
+            Vector3 direction = (player.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 6);
         }
+    }
+
+    public float DistanceToTarget()
+    {
+        return distanceToTarget;
     }
 }
