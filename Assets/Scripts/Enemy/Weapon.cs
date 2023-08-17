@@ -38,7 +38,7 @@ public class Weapon : MonoBehaviour
     {
         return
             Time.time >= nextShootTime &&
-            isReloading == false;//&& player.DistanceToTarget() <= StartShootDistance;
+            isReloading == false && player.DistanceToTarget() <= StartShootDistance;
     }
 
    
