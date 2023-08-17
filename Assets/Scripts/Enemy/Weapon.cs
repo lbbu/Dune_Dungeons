@@ -16,7 +16,8 @@ public class Weapon : MonoBehaviour
     bool isReloading;
 
     void Update()
-    {if (CanShoot())
+    {
+        if (CanShoot())
         {
           shoot(); 
         }

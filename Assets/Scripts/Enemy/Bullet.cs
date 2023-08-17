@@ -6,17 +6,17 @@ public class Bullet : MonoBehaviour
 {
     public float Force = 100;
     public Rigidbody rb;
-    //public GameObject Effect;
+
 
     void Start()
     {
         rb.velocity = transform.forward * Force;
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
+        if(collision.collider.tag == "Player")
         Destroy(gameObject);
-
     }
 }
 
