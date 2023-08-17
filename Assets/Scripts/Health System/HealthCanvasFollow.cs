@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthCanvasFollow : MonoBehaviour
 {
 
-    [SerializeField] private Transform player;
+    [SerializeField] private Transform objectToFollow;
     private RectTransform HealthCanvasTransform;
 
     private void Awake()
@@ -19,7 +19,7 @@ public class HealthCanvasFollow : MonoBehaviour
         float YDistance = 2.5f;
         float ZDistance = 1f;
         
-        Vector3 desiredPos = new Vector3(player.position.x, player.position.y + YDistance, player.position.z + ZDistance);
+        Vector3 desiredPos = new Vector3(objectToFollow.position.x, objectToFollow.position.y + YDistance, objectToFollow.position.z + ZDistance);
 
         HealthCanvasTransform.position = desiredPos;
 

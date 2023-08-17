@@ -1,25 +1,70 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.Processors;
 
-public class EnemyHealth : MonoBehaviour,IEnemy
+public class EnemyHealth : MonoBehaviour,IEnemy, IHealth
 {
-   [SerializeField] int healthPoints = 10;
-    bool isDead = false;
 
-    public bool IsDead()
+
+    [SerializeField] private HealthBar healthBar;
+
+    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int currentHealth = 100;
+
+    private bool isDead = false;
+
+    public bool IsDead() => isDead;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        return isDead;
+        SetMaxHealth(maxHealth, maxHealth);
     }
-     
-    public void loseHealth(int WeaopnDamage)
+
+    public void Heal(int healAmount)
     {
-        healthPoints -= WeaopnDamage;
-        if(healthPoints <= 0) 
+        currentHealth = Mathf.Clamp(healAmount + currentHealth, 0, maxHealth);
+
+        healthBar.SetHealth(currentHealth);
+
+    }
+
+    public void SetMaxHealth(int maxHealth, int healAmount)
+    {
+        this.maxHealth = maxHealth;
+
+        healthBar.SetMaxHealth(this.maxHealth);
+
+        Heal(healAmount);
+
+    }
+
+    public void IncreaseMaxHealth(int maxHealthAmount, int healAmount)
+    {
+
+        SetMaxHealth(maxHealth + maxHealthAmount, healAmount);
+
+    }
+
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0, maxHealth);
+
+        if (currentHealth <= 0)
         {
+            //Enemy Dye
+            Debug.Log("Enemy Dye");
+            healthBar.SetHealth(currentHealth);
+
             isDead = true;
+
         }
+        else
+        {
+            healthBar.SetHealth(currentHealth);
+        }
+
     }
 
-   
 }
