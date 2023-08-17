@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 440301176}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: obstical
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 1179989655}
   m_Layer: 0
   m_Name: TEMP ground
-  m_TagString: Untagged
+  m_TagString: obstical
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -774,7 +774,7 @@ PrefabInstance:
       objectReference: {fileID: 2014569554}
     - target: {fileID: 360119194960993530, guid: 7206d0c2cefffae4c8bdd07d934f24dc, type: 3}
       propertyPath: fireRate
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3560182459524288798, guid: 7206d0c2cefffae4c8bdd07d934f24dc, type: 3}
       propertyPath: m_RootOrder
