@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour , IHealth
 
     public void Heal(int healAmount)
     {
-        currentHealth = Mathf.Clamp(healAmount, 0, maxHealth);
+        currentHealth = Mathf.Clamp(healAmount + currentHealth, 0, maxHealth);
 
         healthBar.SetHealth(currentHealth);
 
@@ -36,9 +36,18 @@ public class PlayerHealth : MonoBehaviour , IHealth
 
     public void SetMaxHealth(int maxHealth, int healAmount)
     {
-        healthBar.SetMaxHealth(maxHealth);
+        this.maxHealth = maxHealth;
+
+        healthBar.SetMaxHealth(this.maxHealth);
 
         Heal(healAmount);
+
+    }
+
+    public void IncreaseMaxHealth(int maxHealthAmount, int healAmount)
+    {
+
+        SetMaxHealth(maxHealth + maxHealthAmount, healAmount);
 
     }
 
