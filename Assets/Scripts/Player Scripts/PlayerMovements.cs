@@ -10,6 +10,7 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private float RotationSpeed = 15f;
     [SerializeField] private float playerRadius = 0.7f;
     [SerializeField] private float playerHeight = 1f;
+    [SerializeField] private LayerMask obstacleLayer;
     private bool isWalking;
 
     //Objects
@@ -49,7 +50,8 @@ public class PlayerMovements : MonoBehaviour
         float moveDistance = moveSpeed * Time.deltaTime;
 
         bool canMove = !Physics.CapsuleCast(transform.position, transform.position + 
-            Vector3.up * playerHeight, playerRadius, moveDir, moveDistance);
+            Vector3.up * playerHeight, playerRadius, moveDir, moveDistance, obstacleLayer);
+
 
         if (!canMove)
         {
@@ -60,7 +62,7 @@ public class PlayerMovements : MonoBehaviour
             // Attempt only X movements
             Vector3 moveDirX = new Vector3(moveDir.x, 0, 0).normalized;
             canMove = !Physics.CapsuleCast(transform.position, transform.position + 
-                Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance);
+                Vector3.up * playerHeight, playerRadius, moveDirX, moveDistance, obstacleLayer);
 
             if (canMove)
             {
@@ -74,7 +76,8 @@ public class PlayerMovements : MonoBehaviour
                 //Attempts only Z movements
                 Vector3 moveDirZ = new Vector3(0, 0, moveDir.z).normalized;
 
-                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirZ, moveDistance);
+                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, 
+                    playerRadius, moveDirZ, moveDistance, obstacleLayer);
 
                 if (canMove)
                 {
