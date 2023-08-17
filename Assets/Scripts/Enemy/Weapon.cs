@@ -6,12 +6,10 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] float fireRate = 1f;
     [SerializeField] float StartShootDistance = 7f;
-    //[SerializeField] int damage = 10;
 
 
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPoint;
-   // [SerializeField] PlayerHealth PlayerHealth;
     [SerializeField] EnemyFollowPlayer player;
 
 
