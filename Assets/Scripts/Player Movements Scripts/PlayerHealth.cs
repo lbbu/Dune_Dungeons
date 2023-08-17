@@ -19,7 +19,10 @@ public class PlayerHealth : MonoBehaviour , IHealth
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(10);
+        }
     }
 
 
@@ -41,11 +44,13 @@ public class PlayerHealth : MonoBehaviour , IHealth
 
     public void TakeDamage(int damageAmount)
     {
-        currentHealth = Mathf.Clamp(damageAmount, 0, maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0, maxHealth);
 
         if(currentHealth <= 0)
         {
             //player Dye
+            Debug.Log("Dye");
+            healthBar.SetHealth(currentHealth);
         }
         else
         {

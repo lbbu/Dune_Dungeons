@@ -31,7 +31,7 @@ public class PlayerMovements : MonoBehaviour
 
         HandleMovements();
 
-        Debug.Log(gameInput.GetInputVectorNormalized());
+       // Debug.Log(gameInput.GetInputVectorNormalized());
 
     }
 
