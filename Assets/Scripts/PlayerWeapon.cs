@@ -10,8 +10,8 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] float StartShootDistance = 10f;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPoint;
-    [SerializeField] EnemyFollowPlayer Enemy;
-
+    [SerializeField] EnemyFollowPlayer[] Enemy;
+   // [SerializeField] GameObject[] enemys;
     float nextShootTime;
     bool isReloading;
 
@@ -20,7 +20,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private void Start()
     {
-        weaponAmmo = 15;
+        weaponAmmo = 999;
     }
 
     void Update()
@@ -55,9 +55,11 @@ public class PlayerWeapon : MonoBehaviour
 
     bool CanShoot()
     {
+       System.Random r = new System.Random();
+        int num = r.Next(0, 3);
         return
             Time.time >= nextShootTime &&
-            isReloading == false && weaponAmmo>0 && Enemy.DistanceToTarget() <= StartShootDistance ;
+            isReloading == false && weaponAmmo>0 && Enemy[num].DistanceToTarget() <= StartShootDistance ;
     }
 
     IEnumerator Reload()
