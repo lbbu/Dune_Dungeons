@@ -380,7 +380,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9024965200446612507, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.59
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 9024965200446612507, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInventoryAmmo: {fileID: 801632671}
   fireRate: 1
-  bullet: {fileID: 2989900710620912343, guid: 6841fce0f10ec3e41838e405e079b0d6, type: 3}
+  bullet: {fileID: 2989900710620912343, guid: 18145dbdab394ca4bb418ce722f68b8a, type: 3}
   shootPoint: {fileID: 178740284}
   weaponAmmo: 10
 --- !u!1 &1332597771
@@ -704,7 +704,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6080531380023725087}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f15dcc0ece6c9ea4882d26c5d9197f2b, type: 3}
   m_Name: 
@@ -1022,6 +1022,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 801632667}
+    - target: {fileID: 1734116435874596094, guid: 3f8bd0e3c915e9d47b795de8b63fbe35, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3260491685726221633, guid: 3f8bd0e3c915e9d47b795de8b63fbe35, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4922988569707814015, guid: 3f8bd0e3c915e9d47b795de8b63fbe35, type: 3}
       propertyPath: Enemy
       value: 
@@ -1078,8 +1086,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5714220626144405176, guid: 3f8bd0e3c915e9d47b795de8b63fbe35, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7084169609879920203, guid: 3f8bd0e3c915e9d47b795de8b63fbe35, type: 3}
       propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7084169609879920203, guid: 3f8bd0e3c915e9d47b795de8b63fbe35, type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7623803314925573347, guid: 3f8bd0e3c915e9d47b795de8b63fbe35, type: 3}
@@ -1093,6 +1109,10 @@ PrefabInstance:
     - target: {fileID: 7680603944738195463, guid: 3f8bd0e3c915e9d47b795de8b63fbe35, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 2.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935332526002666864, guid: 3f8bd0e3c915e9d47b795de8b63fbe35, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
