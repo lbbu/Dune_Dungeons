@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPoint;
-    [SerializeField] EnemyFollowPlayer player;
+    [SerializeField] EnemyFollowPlayer Enemy;
 
 
     float nextShootTime;
@@ -36,9 +36,9 @@ public class Weapon : MonoBehaviour
     {
         return
             Time.time >= nextShootTime &&
-            isReloading == false && player.DistanceToTarget() <= StartShootDistance;
+            isReloading == false && Enemy.GetDistanceToTarget() <= StartShootDistance;
     }
 
-   
+
 
 }

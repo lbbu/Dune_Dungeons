@@ -4,16 +4,18 @@ using UnityEngine.AI;
 public class EnemyFollowPlayer : MonoBehaviour, IEnemy
 {
     [SerializeField]  Transform player;
-    [SerializeField] float range = 14f;
+
+    [SerializeField] float sightRange = 14f;
+
     [SerializeField] float stopChasTargetRange = 5f;
     float distanceToTarget = Mathf.Infinity;
-    bool isProvoked = false;
+    bool isFollowing = false;
     NavMeshAgent agent;
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 
     private void Start()
@@ -23,12 +25,12 @@ public class EnemyFollowPlayer : MonoBehaviour, IEnemy
     private void Update()
     {
         distanceToTarget = Vector3.Distance(player.position, transform.position);
-        if (isProvoked)
+        if (isFollowing)
         {
             EngageTarget();
-        }else if( distanceToTarget<=range)
+        }else if( distanceToTarget<=sightRange)
         {
-            isProvoked = true;
+            isFollowing = true;
         }
         stopChasTarget();
     }
@@ -51,12 +53,12 @@ public class EnemyFollowPlayer : MonoBehaviour, IEnemy
     {
         if(distanceToTarget >= stopChasTargetRange)
         {
-            isProvoked=false;
+            isFollowing=false;
         }
     }
     void faceTarget()
     {
-        if (distanceToTarget <= range / 2)
+        if (distanceToTarget <= sightRange / 2)
         {
             Vector3 direction = (player.position - transform.position).normalized;
             Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
@@ -64,7 +66,7 @@ public class EnemyFollowPlayer : MonoBehaviour, IEnemy
         }
     }
 
-    public float DistanceToTarget()
+    public float GetDistanceToTarget()
     {
         return distanceToTarget;
     }

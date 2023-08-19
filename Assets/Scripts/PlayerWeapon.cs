@@ -7,10 +7,12 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] PlayerInventory playerInventoryAmmo;
 
     [SerializeField] float fireRate = 1f;
-
+    [SerializeField] float StartShootDistance = 10f;
+    [SerializeField] int NumberOfEnemes = 0;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPoint;
-    
+    [SerializeField] EnemyFollowPlayer[] Enemy;
+
     float nextShootTime;
     bool isReloading;
 
@@ -19,7 +21,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private void Start()
     {
-        weaponAmmo = 15;
+        weaponAmmo = 999;
     }
 
     void Update()
@@ -32,7 +34,7 @@ public class PlayerWeapon : MonoBehaviour
     private void shootAction()
     {
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && CanShoot())
+        if (CanShoot()) //Input.GetKeyDown(KeyCode.Mouse1) 
         {
             shoot();
         }
@@ -54,15 +56,15 @@ public class PlayerWeapon : MonoBehaviour
 
     bool CanShoot()
     {
+       System.Random r = new System.Random();
+        int num = r.Next(0, NumberOfEnemes);
         return
             Time.time >= nextShootTime &&
-            isReloading == false && weaponAmmo>0 ;
+            isReloading == false && weaponAmmo>0 && Enemy[num].GetDistanceToTarget() <= StartShootDistance ;
     }
 
     IEnumerator Reload()
     {
-        Debug.Log("reload?????");
-
         isReloading = true;
         yield return new WaitForSeconds(1);
         isReloading = false;
