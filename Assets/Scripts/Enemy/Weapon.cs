@@ -39,6 +39,6 @@ public class Weapon : MonoBehaviour
             isReloading == false && Enemy.DistanceToTarget() <= StartShootDistance;
     }
 
-   
+
 
 }

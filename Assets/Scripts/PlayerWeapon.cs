@@ -8,10 +8,11 @@ public class PlayerWeapon : MonoBehaviour
 
     [SerializeField] float fireRate = 1f;
     [SerializeField] float StartShootDistance = 10f;
+
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPoint;
     [SerializeField] EnemyFollowPlayer[] Enemy;
-   // [SerializeField] GameObject[] enemys;
+
     float nextShootTime;
     bool isReloading;
 
@@ -33,7 +34,7 @@ public class PlayerWeapon : MonoBehaviour
     private void shootAction()
     {
 
-        if (CanShoot()) //Input.GetKeyDown(KeyCode.Mouse1) &&
+        if (CanShoot()) //Input.GetKeyDown(KeyCode.Mouse1) 
         {
             shoot();
         }
