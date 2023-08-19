@@ -8,7 +8,7 @@ public class PlayerWeapon : MonoBehaviour
 
     [SerializeField] float fireRate = 1f;
     [SerializeField] float StartShootDistance = 10f;
-
+    [SerializeField] int NumberOfEnemes = 0;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPoint;
     [SerializeField] EnemyFollowPlayer[] Enemy;
@@ -57,10 +57,10 @@ public class PlayerWeapon : MonoBehaviour
     bool CanShoot()
     {
        System.Random r = new System.Random();
-        int num = r.Next(0, 3);
+        int num = r.Next(0, NumberOfEnemes);
         return
             Time.time >= nextShootTime &&
-            isReloading == false && weaponAmmo>0 && Enemy[num].DistanceToTarget() <= StartShootDistance ;
+            isReloading == false && weaponAmmo>0 && Enemy[num].GetDistanceToTarget() <= StartShootDistance ;
     }
 
     IEnumerator Reload()

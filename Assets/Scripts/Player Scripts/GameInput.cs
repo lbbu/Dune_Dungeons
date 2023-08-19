@@ -14,9 +14,7 @@ public class GameInput : MonoBehaviour
 
     public Vector2 GetInputVectorNormalized()
     {
-
         return MovementAmount;
-
     }
 
     private void OnEnable()

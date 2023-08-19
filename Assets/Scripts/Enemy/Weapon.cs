@@ -36,7 +36,7 @@ public class Weapon : MonoBehaviour
     {
         return
             Time.time >= nextShootTime &&
-            isReloading == false && Enemy.DistanceToTarget() <= StartShootDistance;
+            isReloading == false && Enemy.GetDistanceToTarget() <= StartShootDistance;
     }
 
 
