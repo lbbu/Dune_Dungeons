@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33b8d9063a1541446a7d8789707232cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 9024965200446612507}
+  objectToFollow: {fileID: 9024965200446612507}
 --- !u!1 &2170051183121025264
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +259,9 @@ MonoBehaviour:
   RotationSpeed: 15
   playerRadius: 0.5
   playerHeight: 1
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 64
   gameInput: {fileID: 0}
 --- !u!114 &8697182149730618370
 MonoBehaviour:
