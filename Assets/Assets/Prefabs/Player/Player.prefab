@@ -218,7 +218,8 @@ GameObject:
   - component: {fileID: 9024965200446612507}
   - component: {fileID: 1814503211440432205}
   - component: {fileID: 8697182149730618370}
-  - component: {fileID: 6969982818851156895}
+  - component: {fileID: 4182807155854939724}
+  - component: {fileID: 5895084589615517361}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -241,7 +242,7 @@ Transform:
   - {fileID: 9182786773060667225}
   - {fileID: 4614242047341965166}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1814503211440432205
 MonoBehaviour:
@@ -278,8 +279,21 @@ MonoBehaviour:
   healthBar: {fileID: 662627157084629725}
   maxHealth: 100
   currentHealth: 100
---- !u!136 &6969982818851156895
-CapsuleCollider:
+--- !u!114 &4182807155854939724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2170051183121025264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558647e7ef6e34b4d92c6ca822b1a27c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmmoInventory: 50
+--- !u!65 &5895084589615517361
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -296,11 +310,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.4621062, z: 1.7145536}
+  m_Center: {x: 0, y: 0.7310529, z: 0.11332595}
 --- !u!1 &2916537966245615069
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,8 +765,35 @@ PrefabInstance:
     - {fileID: 5760318756652639797, guid: b0184be06f7ad094c8244f27c974bbb2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4156560360755766845, guid: b0184be06f7ad094c8244f27c974bbb2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4376031119910021299}
   m_SourcePrefab: {fileID: 100100000, guid: b0184be06f7ad094c8244f27c974bbb2, type: 3}
+--- !u!1 &1160514634983474432 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4156560360755766845, guid: b0184be06f7ad094c8244f27c974bbb2, type: 3}
+  m_PrefabInstance: {fileID: 3005563727652332349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4376031119910021299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160514634983474432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d393f2fa9b5ee7f45bec06d2ea655b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventoryAmmo: {fileID: 4182807155854939724}
+  fireRate: 10
+  StartShootDistance: 10
+  bullet: {fileID: 2989900710620912343, guid: 18145dbdab394ca4bb418ce722f68b8a, type: 3}
+  shootPoint: {fileID: 1832245792178067493}
+  Enemy: {fileID: 0}
+  weaponAmmo: 2147483647
 --- !u!4 &1832245792178067493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3519732014276049688, guid: b0184be06f7ad094c8244f27c974bbb2, type: 3}
