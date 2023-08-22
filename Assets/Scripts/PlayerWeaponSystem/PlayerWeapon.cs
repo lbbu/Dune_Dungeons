@@ -15,6 +15,7 @@ public class PlayerWeapon : MonoBehaviour
 
     float nextShootTime;
     bool isReloading;
+    bool isActive= false;
 
     [SerializeField] int weaponAmmo;
 
@@ -59,8 +60,10 @@ public class PlayerWeapon : MonoBehaviour
        System.Random r = new System.Random();
         int num = r.Next(0, NumberOfEnemes);
         return
-            Time.time >= nextShootTime &&
-            isReloading == false && weaponAmmo>0 && Enemy[num].GetDistanceToTarget() <= StartShootDistance ;
+            Time.time >= nextShootTime
+            && isReloading == false && weaponAmmo>0 
+            && Enemy[num].GetDistanceToTarget() <= StartShootDistance 
+            && isActive;
     }
 
     IEnumerator Reload()
@@ -74,5 +77,13 @@ public class PlayerWeapon : MonoBehaviour
 
     }
 
+  public  void setIsActive(bool b)
+    {
+        isActive = b;
+    }
+    public bool getIsActive()
+    {
+        return isActive;
+    }
 }
 
