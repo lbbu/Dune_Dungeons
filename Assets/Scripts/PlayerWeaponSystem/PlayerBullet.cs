@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerBullet : MonoBehaviour
 {
 
-    public float Force = 100;
+    public float Force =100;
     public Rigidbody rb;
     [SerializeField] int damage = 10;
 
@@ -15,6 +15,8 @@ public class playerBullet : MonoBehaviour
     void Start()
     {
         rb.velocity = transform.forward * Force;
+        StartCoroutine(DestroyItemByTime());
+        
     }
 
 
@@ -39,6 +41,14 @@ public class playerBullet : MonoBehaviour
         }
 
 
+    }
+
+    IEnumerator DestroyItemByTime()
+    {
+        yield
+            return new WaitForSeconds(1);
+        Destroy(gameObject);
+        Debug.Log("player Bullet");
     }
 }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class PlayerMovements : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private float playerHeight = 1f;
     [SerializeField] private LayerMask obstacleLayer;
     private bool isWalking;
+
+    
 
     //Objects
     [SerializeField] private GameInput gameInput;
@@ -32,11 +35,12 @@ public class PlayerMovements : MonoBehaviour
 
         HandleMovements();
 
+        
        // Debug.Log(gameInput.GetInputVectorNormalized());
 
     }
 
-
+ 
 
     private void HandleMovements()
     {

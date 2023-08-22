@@ -66,7 +66,7 @@ public class WeaponSwitcher : MonoBehaviour
         }
     }
 
-     public void AddWeapon( Collision weapon)
+     public void AddWeapon(Collision weapon)
     {
         GameObject temp;
         Debug.Log("AddWeapon!");
@@ -76,7 +76,8 @@ public class WeaponSwitcher : MonoBehaviour
         temp.transform.localRotation = Quaternion.Euler(Vector3.zero);
         temp.transform.localScale = Vector3.one;
         temp.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        temp.gameObject.SetActive(false);
+
+
 
     }
 }
