@@ -1226,10 +1226,18 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.9866903
       objectReference: {fileID: 0}
+    - target: {fileID: 6307437953672562600, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7304948088498022963, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 963194228}
+    - target: {fileID: 7872562236481342311, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9024965200446612507, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1294,6 +1302,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 324286577425423969, guid: d374a07e8baf2134ba951ea65d5f371d, type: 3}
+      propertyPath: field of view
+      value: 77.51491
+      objectReference: {fileID: 0}
     - target: {fileID: 3027440269993014463, guid: d374a07e8baf2134ba951ea65d5f371d, type: 3}
       propertyPath: playerTransform
       value: 
