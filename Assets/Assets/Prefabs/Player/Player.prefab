@@ -245,7 +245,7 @@ Transform:
   - {fileID: 4614242047341965166}
   - {fileID: 1413078919037902810}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1814503211440432205
 MonoBehaviour:
@@ -314,8 +314,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.4621062, z: 1.7145536}
-  m_Center: {x: 0, y: 0.7310529, z: 0.11332595}
+  m_Size: {x: 1, y: 1.9513593, z: 1.4506903}
+  m_Center: {x: 0, y: 0.98642635, z: 0.20944023}
 --- !u!114 &8303264306384666311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -789,6 +789,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1814503211440432205}
     - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
+      propertyPath: Enemy.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
       propertyPath: playerInventoryAmmo
       value: 
       objectReference: {fileID: 4182807155854939724}
@@ -870,6 +874,10 @@ PrefabInstance:
       propertyPath: PlayerMovement
       value: 
       objectReference: {fileID: 1814503211440432205}
+    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
+      propertyPath: Enemy.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
       propertyPath: playerInventoryAmmo
       value: 

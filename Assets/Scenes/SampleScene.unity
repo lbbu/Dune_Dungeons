@@ -132,10 +132,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 571101181486003807, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
-      propertyPath: Enemy.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 571101181486003807, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: Enemy.Array.data[0]
       value: 
       objectReference: {fileID: 1144922293}
@@ -147,10 +143,6 @@ PrefabInstance:
       propertyPath: AllEnemys
       value: 
       objectReference: {fileID: 1342546455}
-    - target: {fileID: 4405793384881404560, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
-      propertyPath: Enemy.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4405793384881404560, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: Enemy.Array.data[0]
       value: 
@@ -165,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9024965200446612507, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9024965200446612507, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: m_LocalPosition.z

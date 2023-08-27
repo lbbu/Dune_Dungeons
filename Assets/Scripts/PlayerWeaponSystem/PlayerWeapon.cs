@@ -54,8 +54,8 @@ public class PlayerWeapon : MonoBehaviour
 
     bool CanShoot()
     {
-       System.Random r = new System.Random();
-        int num = r.Next(0, NumberOfEnemes);
+       System.Random randomNumber = new System.Random();
+        int num = randomNumber.Next(0, NumberOfEnemes);
         return
             Time.time >= nextShootTime 
             && Enemy[num].GetDistanceToTarget() <= StartShootDistance 
