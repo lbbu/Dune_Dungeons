@@ -17,7 +17,7 @@ public class PlayerMovements : MonoBehaviour
     
 
     //Objects
-    [SerializeField] private GameInput gameInput;
+    [SerializeField] private PlayerGameInput gameInput;
 
 
     //return True if the player is walking
@@ -33,7 +33,7 @@ public class PlayerMovements : MonoBehaviour
     void Update()
     {
 
-        HandleMovements();
+       // HandleMovements();
 
         
        // Debug.Log(gameInput.GetInputVectorNormalized());
@@ -42,10 +42,10 @@ public class PlayerMovements : MonoBehaviour
 
  
 
-    private void HandleMovements()
+    public void HandleMovements(Vector2 inputVector)
     {
         //get the input vector from the GameInput Class
-        Vector2 inputVector = gameInput.GetInputVectorNormalized();
+        //Vector2 inputVector = gameInput.GetInputVectorNormalized();
 
         Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
 

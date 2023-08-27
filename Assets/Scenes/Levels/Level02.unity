@@ -1924,6 +1924,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &943021750 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1814503211440432205, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+  m_PrefabInstance: {fileID: 3803741527496294533}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784466748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036dfbafe0082134e8f62d942e97af24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &959910223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3868,6 +3879,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3167320854370885691, guid: b71b4bf74798774469b41eed9ff9e818, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 943021750}
     - target: {fileID: 3167320854370885691, guid: b71b4bf74798774469b41eed9ff9e818, type: 3}
       propertyPath: Joystick
       value: 
