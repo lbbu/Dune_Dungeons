@@ -12,7 +12,7 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPoint;
     [SerializeField] EnemyFollowPlayer[] Enemy;
-    [SerializeField] PlayerMovements PlayerMovement ;
+    [SerializeField] Movments PlayerMovement ;
     [SerializeField] FacingEnemy facingEnemy;
     float nextShootTime;
     bool isActive= false;
