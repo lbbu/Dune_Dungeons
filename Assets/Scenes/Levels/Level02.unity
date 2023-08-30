@@ -4044,6 +4044,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1814503211440432205, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+      propertyPath: maxX
+      value: 4.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814503211440432205, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+      propertyPath: minX
+      value: -4.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814503211440432205, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: gameInput
       value: 
       objectReference: {fileID: 2116394545}
