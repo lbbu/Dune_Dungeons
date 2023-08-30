@@ -2,19 +2,22 @@ using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 using ETouch = UnityEngine.InputSystem.EnhancedTouch;
 
-public class GameInput : MonoBehaviour
+public class PlayerGameInput : MonoBehaviour
 {
     [SerializeField]
     private Vector2 JoystickSize = new Vector2(300, 300);
     [SerializeField]
     private FloatingJoystick Joystick;
+    [SerializeField] 
+    private PlayerMovements player;
 
     private Finger MovementFinger;
-    private Vector2 MovementAmount;
+    private Vector2 inputVector;
+ 
 
-    public Vector2 GetInputVectorNormalized()
+    private void Update()
     {
-        return MovementAmount;
+        player.HandleMovements(inputVector);
     }
 
     private void OnEnable()
@@ -57,8 +60,8 @@ public class GameInput : MonoBehaviour
             }
 
             Joystick.Knob.anchoredPosition = knobPosition;
-            MovementAmount = knobPosition / maxMovement;
-            MovementAmount = MovementAmount.normalized;
+            inputVector = knobPosition / maxMovement;
+            inputVector = inputVector.normalized;
         }
     }
 
@@ -69,7 +72,7 @@ public class GameInput : MonoBehaviour
             MovementFinger = null;
             Joystick.Knob.anchoredPosition = Vector2.zero;
             Joystick.gameObject.SetActive(false);
-            MovementAmount = Vector2.zero;
+            inputVector = Vector2.zero;
         }
     }
 
@@ -78,7 +81,7 @@ public class GameInput : MonoBehaviour
         if (MovementFinger == null)
         {
             MovementFinger = TouchedFinger;
-            MovementAmount = Vector2.zero;
+            inputVector = Vector2.zero;
             Joystick.gameObject.SetActive(true);
             Joystick.RectTransform.sizeDelta = JoystickSize;
             Joystick.RectTransform.anchoredPosition = ClampStartPosition(TouchedFinger.screenPosition);

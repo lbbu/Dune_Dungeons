@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 4182807155854939724}
   - component: {fileID: 5895084589615517361}
   - component: {fileID: 8303264306384666311}
+  - component: {fileID: 2704701224709999067}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -244,7 +245,7 @@ Transform:
   - {fileID: 4614242047341965166}
   - {fileID: 1413078919037902810}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1814503211440432205
 MonoBehaviour:
@@ -313,8 +314,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.4621062, z: 1.7145536}
-  m_Center: {x: 0, y: 0.7310529, z: 0.11332595}
+  m_Size: {x: 1, y: 1.9513593, z: 1.4506903}
+  m_Center: {x: 0, y: 0.98642635, z: 0.20944023}
 --- !u!114 &8303264306384666311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +329,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponSwitcher: {fileID: 5182393312969158418}
+--- !u!114 &2704701224709999067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2170051183121025264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0b6d1ce12c77b64c9d2db3a670513b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AllEnemys: {fileID: 0}
+  sightRange: 15
 --- !u!1 &2916537966245615069
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,6 +777,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 1413078919037902810}
     m_Modifications:
     - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
+      propertyPath: fireRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
+      propertyPath: facingEnemy
+      value: 
+      objectReference: {fileID: 2704701224709999067}
+    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
+      propertyPath: PlayerMovement
+      value: 
+      objectReference: {fileID: 1814503211440432205}
+    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
+      propertyPath: Enemy.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
       propertyPath: playerInventoryAmmo
       value: 
       objectReference: {fileID: 4182807155854939724}
@@ -835,6 +866,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1413078919037902810}
     m_Modifications:
+    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
+      propertyPath: facingEnemy
+      value: 
+      objectReference: {fileID: 2704701224709999067}
+    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
+      propertyPath: PlayerMovement
+      value: 
+      objectReference: {fileID: 1814503211440432205}
+    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
+      propertyPath: Enemy.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
       propertyPath: playerInventoryAmmo
       value: 

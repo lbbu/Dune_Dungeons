@@ -7,6 +7,7 @@ TagManager:
   - obstical
   - Enemy
   - Weapon
+  - GoldKey
   layers:
   - Default
   - TransparentFX
