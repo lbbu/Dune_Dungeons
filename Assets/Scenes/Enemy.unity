@@ -252,6 +252,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1814503212507662351}
     - target: {fileID: 3702736661883309925, guid: c303a18f1cbdd4156b139b9e5b35d6a9, type: 3}
+      propertyPath: Enemy.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3702736661883309925, guid: c303a18f1cbdd4156b139b9e5b35d6a9, type: 3}
+      propertyPath: Enemy.Array.data[0]
+      value: 
+      objectReference: {fileID: 4196505780183704772}
+    - target: {fileID: 3702736661883309925, guid: c303a18f1cbdd4156b139b9e5b35d6a9, type: 3}
+      propertyPath: Enemy.Array.data[1]
+      value: 
+      objectReference: {fileID: 1209932451}
+    - target: {fileID: 3702736661883309925, guid: c303a18f1cbdd4156b139b9e5b35d6a9, type: 3}
+      propertyPath: Enemy.Array.data[2]
+      value: 
+      objectReference: {fileID: 836022071}
+    - target: {fileID: 3702736661883309925, guid: c303a18f1cbdd4156b139b9e5b35d6a9, type: 3}
+      propertyPath: Enemy.Array.data[3]
+      value: 
+      objectReference: {fileID: 1209932451}
+    - target: {fileID: 3702736661883309925, guid: c303a18f1cbdd4156b139b9e5b35d6a9, type: 3}
       propertyPath: playerInventoryAmmo
       value: 
       objectReference: {fileID: 0}
@@ -619,6 +639,10 @@ PrefabInstance:
       propertyPath: Enemy.Array.data[2]
       value: 
       objectReference: {fileID: 836022071}
+    - target: {fileID: 571101181486003807, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+      propertyPath: playerInventoryAmmo
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1814503211440432205, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: gameInput
       value: 
@@ -647,6 +671,10 @@ PrefabInstance:
       propertyPath: Enemy.Array.data[2]
       value: 
       objectReference: {fileID: 836022071}
+    - target: {fileID: 4405793384881404560, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+      propertyPath: playerInventoryAmmo
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5182393312969158418, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: WeaponCloneTest
       value: 
