@@ -245,7 +245,7 @@ Transform:
   - {fileID: 4614242047341965166}
   - {fileID: 1413078919037902810}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1814503211440432205
 MonoBehaviour:
@@ -867,6 +867,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1413078919037902810}
     m_Modifications:
     - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
+      propertyPath: AllEnemys
+      value: 
+      objectReference: {fileID: 7872562236481342311}
+    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
       propertyPath: facingEnemy
       value: 
       objectReference: {fileID: 2704701224709999067}
@@ -950,5 +954,10 @@ PrefabInstance:
 --- !u!4 &7353011533490704861 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5119190101604468707, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
+  m_PrefabInstance: {fileID: 2377937224101844542}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7872562236481342311 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5494625650325380441, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
   m_PrefabInstance: {fileID: 2377937224101844542}
   m_PrefabAsset: {fileID: 0}
