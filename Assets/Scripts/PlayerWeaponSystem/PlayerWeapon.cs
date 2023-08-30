@@ -7,11 +7,10 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] PlayerInventory playerInventoryAmmo;
 
     [SerializeField] float fireRate = 1f;
-    [SerializeField] float StartShootDistance = 10f;
-    [SerializeField] int NumberOfEnemes = 0;
+    //[SerializeField] float StartShootDistance = 10f;
+    //[SerializeField] int NumberOfEnemes = 0;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPoint;
-    [SerializeField] EnemyFollowPlayer[] Enemy;
     [SerializeField] PlayerMovements PlayerMovement ;
     [SerializeField] FacingEnemy facingEnemy;
     float nextShootTime;
@@ -19,8 +18,12 @@ public class PlayerWeapon : MonoBehaviour
     bool isWalking = false;
     bool isListEmpty = false;
 
-   
 
+    Transform closestEnemy;
+    List<Transform> nearbyEnemies = new List<Transform>();
+    [SerializeField] GameObject AllEnemys;
+    float detectionRange = 10f;
+    [SerializeField] float sightRange = 14f;
 
     private void Start()
     {
@@ -29,6 +32,7 @@ public class PlayerWeapon : MonoBehaviour
 
     void Update()
     {
+        UpdateNearbyEnemies();
         //TODO edit input from mouse to UI button, just edit "shootAction"
        isListEmpty = facingEnemy.GetIsEmptyListOfEnemys();
         isWalking = PlayerMovement.IsWalking();
@@ -54,19 +58,54 @@ public class PlayerWeapon : MonoBehaviour
 
     bool CanShoot()
     {
-       System.Random randomNumber = new System.Random();
-        int num = randomNumber.Next(0, NumberOfEnemes);
+       
         return
             Time.time >= nextShootTime 
-            && Enemy[num].GetDistanceToTarget() <= StartShootDistance 
             && isActive
             && !isWalking
-            && !isListEmpty;
+            && !isListEmpty
+            && closestEnemy != null;
     }
 
-    
+    void UpdateNearbyEnemies()
+    {
+        nearbyEnemies.Clear();
 
-  public  void setIsActive(bool b)
+        foreach (Transform enemy in AllEnemys.transform) // Make sure to use Enemy.transform to access child transforms
+        {
+            float distance = Vector3.Distance(enemy.position, transform.position);
+            if (distance <= detectionRange)
+            {
+                nearbyEnemies.Add(enemy);
+            }
+        }
+
+        FindClosestEnemy();
+    }
+
+    void FindClosestEnemy()
+    {
+        float closestDistance = Mathf.Infinity;
+        closestEnemy = null;
+
+        foreach (Transform enemy in AllEnemys.transform)
+        {
+            float distance = Vector3.Distance(enemy.position, transform.position);
+            if (distance < closestDistance && distance <= sightRange)
+            {
+                closestDistance = distance;
+                closestEnemy = enemy;
+            }
+        }
+    }
+
+    public bool GetIsEmptyListOfEnemys()
+    {
+        if (nearbyEnemies.Count == 0)
+            return true;
+        return false;
+    }
+    public  void setIsActive(bool b)
     {
         isActive = b;
     }
