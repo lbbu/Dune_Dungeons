@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,8 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private float playerHeight = 1f;
     [SerializeField] private LayerMask obstacleLayer;
     private bool isWalking;
-
+    [SerializeField] 
+     float maxX, minX;
     
 
     //Objects
@@ -34,7 +36,10 @@ public class PlayerMovements : MonoBehaviour
     {
 
         HandleMovements();
-
+        
+        Vector3 pos = transform.position;
+        pos.x = Mathf.Clamp(pos.x,minX,maxX);
+        transform.position = pos;
         
        // Debug.Log(gameInput.GetInputVectorNormalized());
 

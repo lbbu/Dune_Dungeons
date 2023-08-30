@@ -3960,6 +3960,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2170051183121025264, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4376031119910021299, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: weaponAmmo
       value: 10
@@ -4000,6 +4004,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 963194228}
+    - target: {fileID: 7872562236481342311, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9024965200446612507, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: m_RootOrder
       value: 3
