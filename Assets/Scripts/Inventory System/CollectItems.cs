@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CollectItems : MonoBehaviour
 {
+
+  [SerializeField] PlayerInventory inventory;
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collision!");
@@ -13,6 +15,13 @@ public class CollectItems : MonoBehaviour
         {
             case "GoldKey":
                 Debug.Log("get Gold Key");
+                inventory.AddGoldKey();
+                Destroy(collision.gameObject);
+                break;
+
+            case "SelverKey":
+                Debug.Log("get Selver Key");
+                inventory.AddSelverKey();
                 Destroy(collision.gameObject);
                 break;
 
@@ -20,8 +29,5 @@ public class CollectItems : MonoBehaviour
 
     }
 
-    void AddGoldKey()
-    {
-
-    }
+    
 }

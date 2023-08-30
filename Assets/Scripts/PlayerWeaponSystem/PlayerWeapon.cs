@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    [SerializeField] PlayerInventory playerInventoryAmmo;
 
     [SerializeField] float fireRate = 1f;
     //[SerializeField] float StartShootDistance = 10f;
