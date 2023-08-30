@@ -23,7 +23,7 @@ public class FacingEnemy : MonoBehaviour
     void Update()
     {
         
-        if (!GetComponent<Movments>().IsWalking())
+        if (!GetComponent<PlayerMovements>().IsWalking())
         {
             UpdateNearbyEnemies();
             if (closestEnemy != null)

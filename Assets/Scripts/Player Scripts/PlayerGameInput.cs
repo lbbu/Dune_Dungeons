@@ -9,7 +9,7 @@ public class PlayerGameInput : MonoBehaviour
     [SerializeField]
     private FloatingJoystick Joystick;
     [SerializeField] 
-    private PlayerMovments player;
+    private PlayerMovements player;
 
     private Finger MovementFinger;
     private Vector2 inputVector;
