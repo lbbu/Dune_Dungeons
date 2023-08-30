@@ -7,6 +7,7 @@ using Vector3 = UnityEngine.Vector3;
 public class WeaponSwitcher : MonoBehaviour
 {
     public int selectedWeapon = 0;
+
     
     void Start()
     {
@@ -22,7 +23,7 @@ public class WeaponSwitcher : MonoBehaviour
     private void SwitchWeapon()
     {
         int prevSelectWeapon = selectedWeapon;
-        if (Input.GetKeyDown(KeyCode.Mouse2))//> 0f
+        if (Input.GetKeyDown(KeyCode.Mouse2))
         {
             if (selectedWeapon >= transform.childCount - 1)
             {
@@ -31,7 +32,7 @@ public class WeaponSwitcher : MonoBehaviour
             else selectedWeapon++;
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse1))//
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             if (selectedWeapon <= 0)
             {
@@ -66,7 +67,8 @@ public class WeaponSwitcher : MonoBehaviour
         }
     }
 
-     public void AddWeapon(Collision weapon)
+
+    public void AddWeapon(Collision weapon)
     {
         GameObject temp;
         Debug.Log("AddWeapon!");
@@ -76,7 +78,7 @@ public class WeaponSwitcher : MonoBehaviour
         temp.transform.localRotation = Quaternion.Euler(Vector3.zero);
         temp.transform.localScale = Vector3.one;
         temp.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-
+        temp.gameObject.SetActive(false);
 
 
     }

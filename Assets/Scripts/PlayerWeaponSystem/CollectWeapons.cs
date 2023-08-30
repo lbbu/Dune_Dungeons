@@ -9,7 +9,6 @@ public class CollectWeapons : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Weapon"))
         {
-            Debug.Log("Collision!");
 
             weaponSwitcher.AddWeapon(collision);
             

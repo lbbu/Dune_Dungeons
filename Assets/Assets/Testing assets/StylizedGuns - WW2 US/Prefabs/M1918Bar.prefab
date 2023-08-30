@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5051246774543896856}
   - component: {fileID: 8193870405434990269}
   - component: {fileID: 6220191202861984375}
+  - component: {fileID: 3702736661883309925}
   m_Layer: 0
   m_Name: M1918Bar
   m_TagString: Untagged
@@ -84,6 +85,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3702736661883309925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5571641588984482722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d393f2fa9b5ee7f45bec06d2ea655b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerInventoryAmmo: {fileID: 0}
+  fireRate: 5
+  StartShootDistance: 10
+  NumberOfEnemes: 3
+  bullet: {fileID: 2989900710620912343, guid: 18145dbdab394ca4bb418ce722f68b8a, type: 3}
+  shootPoint: {fileID: 0}
+  PlayerMovement: {fileID: 0}
+  facingEnemy: {fileID: 0}
+  sightRange: 15
+  AllEnemys: {fileID: 0}
+  detectionRange: 10
 --- !u!1 &7975898225990529428
 GameObject:
   m_ObjectHideFlags: 0

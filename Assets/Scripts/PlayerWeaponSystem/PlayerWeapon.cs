@@ -7,8 +7,8 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] PlayerInventory playerInventoryAmmo;
 
     [SerializeField] float fireRate = 1f;
-    [SerializeField] float StartShootDistance = 10f;
-    [SerializeField] int NumberOfEnemes = 0;
+    //[SerializeField] float StartShootDistance = 10f;
+    //[SerializeField] int NumberOfEnemes = 0;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPoint;
    // [SerializeField] EnemyFollowPlayer[] Enemy;
