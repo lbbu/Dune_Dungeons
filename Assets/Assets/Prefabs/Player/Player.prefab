@@ -193,7 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7d2262855649748b55d64cb2d3a7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
 --- !u!114 &464594279727037651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,12 +215,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9024965200446612507}
-  - component: {fileID: 1814503211440432205}
+  - component: {fileID: 719168883722606434}
   - component: {fileID: 8697182149730618370}
   - component: {fileID: 4182807155854939724}
   - component: {fileID: 5895084589615517361}
   - component: {fileID: 8303264306384666311}
   - component: {fileID: 2704701224709999067}
+  - component: {fileID: 3654024001119815806}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -247,7 +247,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1814503211440432205
+--- !u!114 &719168883722606434
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,17 +256,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2170051183121025264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 036dfbafe0082134e8f62d942e97af24, type: 3}
+  m_Script: {fileID: 11500000, guid: a5ccdd7649e562f4d87dbb6dadd9184c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 7
   RotationSpeed: 15
-  playerRadius: 0.5
+  playerRadius: 0.7
   playerHeight: 1
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
-  gameInput: {fileID: 0}
 --- !u!114 &8697182149730618370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +342,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllEnemys: {fileID: 0}
   sightRange: 15
+--- !u!114 &3654024001119815806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2170051183121025264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e7c694e19797a4fbe9c69dbc3b0d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2916537966245615069
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,7 +672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1413078919037902810
 Transform:
   m_ObjectHideFlags: 0
@@ -785,10 +796,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2704701224709999067}
     - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
-      propertyPath: PlayerMovement
-      value: 
-      objectReference: {fileID: 1814503211440432205}
-    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
       propertyPath: Enemy.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -870,10 +877,6 @@ PrefabInstance:
       propertyPath: facingEnemy
       value: 
       objectReference: {fileID: 2704701224709999067}
-    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
-      propertyPath: PlayerMovement
-      value: 
-      objectReference: {fileID: 1814503211440432205}
     - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
       propertyPath: Enemy.Array.size
       value: 1

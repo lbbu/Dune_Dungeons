@@ -11,8 +11,8 @@ public class PlayerWeapon : MonoBehaviour
     //[SerializeField] int NumberOfEnemes = 0;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPoint;
-   // [SerializeField] EnemyFollowPlayer[] Enemy;
-    [SerializeField] PlayerMovements PlayerMovement;
+    [SerializeField] EnemyFollowPlayer[] Enemy;
+    [SerializeField] Movments PlayerMovement ;
     [SerializeField] FacingEnemy facingEnemy;
 
     List<Transform> nearbyEnemies = new List<Transform>();
