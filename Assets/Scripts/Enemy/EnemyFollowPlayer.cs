@@ -3,11 +3,11 @@ using UnityEngine.AI;
 
 public class EnemyFollowPlayer : MonoBehaviour, IEnemy
 {
-    [SerializeField]  Transform player;
+    [SerializeField] string playerTag = "Player"; // The tag of the player GameObject
 
     [SerializeField] float sightRange = 14f;
+    [SerializeField] float stopChaseTargetRange = 5f;
 
-    [SerializeField] float stopChasTargetRange = 5f;
     float distanceToTarget = Mathf.Infinity;
     bool isFollowing = false;
     NavMeshAgent agent;
@@ -22,17 +22,34 @@ public class EnemyFollowPlayer : MonoBehaviour, IEnemy
     {
         agent = GetComponent<NavMeshAgent>();
     }
+
     private void Update()
     {
-        distanceToTarget = Vector3.Distance(player.position, transform.position);
-        if (isFollowing)
+        GameObject playerObject = GameObject.FindGameObjectWithTag(playerTag);
+
+        if (playerObject == null)
         {
-            EngageTarget();
-        }else if( distanceToTarget<=sightRange)
+            isFollowing = false;
+            return;
+        }
+
+        distanceToTarget = Vector3.Distance(playerObject.transform.position, transform.position);
+
+        if (distanceToTarget <= sightRange)
         {
             isFollowing = true;
         }
-        stopChasTarget();
+        else
+        {
+            isFollowing = false;
+        }
+
+        if (isFollowing)
+        {
+            EngageTarget();
+        }
+
+        stopChaseTarget();
     }
 
     private void EngageTarget()
@@ -46,23 +63,32 @@ public class EnemyFollowPlayer : MonoBehaviour, IEnemy
 
     void chaseTarget()
     {
-        agent.SetDestination(player.position); 
-    }
-
-    void stopChasTarget()
-    {
-        if(distanceToTarget >= stopChasTargetRange)
+        GameObject playerObject = GameObject.FindGameObjectWithTag(playerTag);
+        if (playerObject != null)
         {
-            isFollowing=false;
+            agent.SetDestination(playerObject.transform.position);
         }
     }
+
+    void stopChaseTarget()
+    {
+        if (distanceToTarget >= stopChaseTargetRange)
+        {
+            isFollowing = false;
+        }
+    }
+
     void faceTarget()
     {
         if (distanceToTarget <= sightRange / 2)
         {
-            Vector3 direction = (player.position - transform.position).normalized;
-            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 6);
+            GameObject playerObject = GameObject.FindGameObjectWithTag(playerTag);
+            if (playerObject != null)
+            {
+                Vector3 direction = (playerObject.transform.position - transform.position).normalized;
+                Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 6);
+            }
         }
     }
 

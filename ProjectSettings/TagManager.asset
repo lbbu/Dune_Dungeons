@@ -9,6 +9,8 @@ TagManager:
   - GoldKey
   - weapon1
   - SelverKey
+  - Box
+  - EnemyBox
   layers:
   - Default
   - TransparentFX
