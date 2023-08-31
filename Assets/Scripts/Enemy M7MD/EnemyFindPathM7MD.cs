@@ -16,6 +16,7 @@ public class EnemyFindPathM7MD : MonoBehaviour
 
     const string IS_MOVING_ANIMATION = "isMoving";
     const string IS_ATTACKING_ANIMATION = "isAttacking";
+    const string IDLE_ANIMATION = "Idle";
 
     private enum State
     {
@@ -43,8 +44,8 @@ public class EnemyFindPathM7MD : MonoBehaviour
     void Start()
     {
 
-        state = State.ChaseTarget;
-        animator.SetBool(IS_MOVING_ANIMATION, true);
+        state = State.Idle;
+        animator.SetBool(IDLE_ANIMATION, true);
 
     }
 
@@ -54,6 +55,12 @@ public class EnemyFindPathM7MD : MonoBehaviour
 
         switch(state)
         {
+            case State.Idle:
+
+                Idle();
+
+                break;
+
             case State.ChaseTarget:
 
                 ChasePlayer();
@@ -66,15 +73,33 @@ public class EnemyFindPathM7MD : MonoBehaviour
 
                 break;
 
-            case State.Idle:
-
-
-
-                break;
-
             default: 
 
                 break;
+        }
+
+    }
+
+    private void Idle()
+    {
+
+        if (Vector3.Distance(transform.position, player.transform.position) > attackRange)
+        {
+
+            animator.SetBool(IDLE_ANIMATION, false);
+            animator.SetBool(IS_MOVING_ANIMATION, true);
+            animator.SetBool(IS_ATTACKING_ANIMATION, false);
+
+            state = State.ChaseTarget;
+
+        }
+        else
+        {
+
+            animator.SetBool(IDLE_ANIMATION, false);
+            animator.SetBool(IS_MOVING_ANIMATION, false);
+            animator.SetBool(IS_ATTACKING_ANIMATION, true);
+
         }
 
     }
@@ -85,7 +110,7 @@ public class EnemyFindPathM7MD : MonoBehaviour
         FaceTarget();
 
         //move towards your forward
-        movements.HandleMovements(transform.forward.normalized);
+        movements.HandleMovements((Vector2)transform.forward.normalized);
 
         if(Vector3.Distance(transform.position, player.transform.position) <= attackRange / 2)
         {
@@ -97,13 +122,10 @@ public class EnemyFindPathM7MD : MonoBehaviour
     }
 
     void FaceTarget()
-    {
-
-        enemyRotationSpeed += Time.deltaTime;
-        
+    {        
         Vector3 direction = (player.transform.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, enemyRotationSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, enemyRotationSpeed * Time.deltaTime);
         
     }
 
