@@ -44,6 +44,7 @@ public class EnemyFindPathM7MD : MonoBehaviour
     {
 
         state = State.ChaseTarget;
+        animator.SetBool(IS_MOVING_ANIMATION, true);
 
     }
 
@@ -66,6 +67,8 @@ public class EnemyFindPathM7MD : MonoBehaviour
                 break;
 
             case State.Idle:
+
+
 
                 break;
 
