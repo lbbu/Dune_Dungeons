@@ -4024,6 +4024,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 571101181486003807, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+      propertyPath: AllEnemys
+      value: 
+      objectReference: {fileID: 429705598}
+    - target: {fileID: 571101181486003807, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: Enemy.Array.data[0]
       value: 
       objectReference: {fileID: 1204866100}
@@ -4044,6 +4048,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1814503211440432205, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+      propertyPath: maxX
+      value: 4.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814503211440432205, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+      propertyPath: minX
+      value: -4.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1814503211440432205, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: gameInput
       value: 
       objectReference: {fileID: 2116394545}
@@ -4052,6 +4064,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2704701224709999067, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+      propertyPath: AllEnemys
+      value: 
+      objectReference: {fileID: 429705598}
+    - target: {fileID: 4405793384881404560, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: AllEnemys
       value: 
       objectReference: {fileID: 429705598}

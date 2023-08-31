@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,8 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] private LayerMask obstacleLayer;
     private bool isWalking;
 
-    
+    [SerializeField] public float minX, maxX; //by zaid
+
 
     //Objects
     [SerializeField] private PlayerGameInput gameInput;
@@ -23,24 +25,27 @@ public class PlayerMovements : MonoBehaviour
     //return True if the player is walking
     public bool IsWalking() => isWalking;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+   
 
     // Update is called once per frame
     void Update()
     {
+        /*
+        float inputX = Input.GetAxis("Horizontal");
+        float newPosition = transform.position.x + inputX * moveSpeed * Time.deltaTime;
+        newPosition = Mathf.Clamp(newPosition, minX, maxX);
+        transform.position = new Vector3(newPosition, transform.position.y, transform.position.z);
+       ==> These lines constrains the player's movement on the X-axis between the minX and maxX limits 
+        */
 
-       // HandleMovements();
+        // HandleMovements();
 
-        
-       // Debug.Log(gameInput.GetInputVectorNormalized());
+
+        // Debug.Log(gameInput.GetInputVectorNormalized());
 
     }
 
- 
+
 
     public void HandleMovements(Vector2 inputVector)
     {

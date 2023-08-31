@@ -5,11 +5,22 @@ using UnityEngine;
 
 public class PlayerInventory: MonoBehaviour 
 {
-    List<GoldeKeyBase> Gkeys = new List<GoldeKeyBase>();
+    List<GoldeKeyBase> Gkey = new List<GoldeKeyBase>();
     List<SelverKeyBase> Skey = new List<SelverKeyBase>();
 
     int Coins;
 
+   public  void AddGoldKey()
+    {
+        Gkey.Add(new GoldeKeyBase());
+        Debug.Log(Gkey.Count+" Gold");
+    }
 
+
+    public void AddSelverKey()
+    {
+        Skey.Add(new SelverKeyBase());
+        Debug.Log(Skey.Count + " Selver");
+    }
 }
 

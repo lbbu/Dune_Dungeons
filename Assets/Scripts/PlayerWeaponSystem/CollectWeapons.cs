@@ -7,15 +7,17 @@ public class CollectWeapons : MonoBehaviour
     [SerializeField] WeaponSwitcher weaponSwitcher ;
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Weapon"))
+        if (collision.gameObject.CompareTag("weapon1"))
         {
 
             weaponSwitcher.AddWeapon(collision);
-            
+            // collision.gameObject.SetActive(false);
+            Destroy(this.GetComponent<CollectWeapons>());
             Destroy(collision.gameObject);
+
         }
 
-        
+
 
 
     }

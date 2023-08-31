@@ -1,5 +1,6 @@
 using System.Numerics;
 using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
@@ -8,6 +9,8 @@ public class WeaponSwitcher : MonoBehaviour
 {
     public int selectedWeapon = 0;
 
+
+   [SerializeField] GameObject [] weaponsTypes;
     
     void Start()
     {
@@ -70,16 +73,28 @@ public class WeaponSwitcher : MonoBehaviour
 
     public void AddWeapon(Collision weapon)
     {
-        GameObject temp;
-        Debug.Log("AddWeapon!");
-        temp = Instantiate(weapon.gameObject, transform.position, transform.rotation);
-        temp.gameObject.transform.SetParent(transform);
-        temp.transform.localPosition = Vector3.zero;
-        temp.transform.localRotation = Quaternion.Euler(Vector3.zero);
-        temp.transform.localScale = Vector3.one;
-        temp.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        temp.gameObject.SetActive(false);
 
+        System.Random randomNumber = new System.Random();
+        int num = randomNumber.Next(0, weaponsTypes.Length);
+        GameObject temp;
+        if (weapon.gameObject.tag == weaponsTypes[num].tag)
+        {
+          temp = Instantiate(weapon.gameObject, transform.position, transform.rotation);
+          temp.transform.SetParent(transform);
+          temp.SetActive(false);
+        }
+
+        //GameObject temp;
+        //Debug.Log("AddWeapon!");
+        //temp = Instantiate(weapon.gameObject, transform.position, transform.rotation);
+        //temp.gameObject.transform.SetParent(transform);
+        //temp.transform.localPosition = Vector3.zero;
+        //temp.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        //temp.transform.localScale = Vector3.one;
+        //temp.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        
+
+       //Destroy(weapon.gameObject);
 
     }
 }
