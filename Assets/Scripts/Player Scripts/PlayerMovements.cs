@@ -18,10 +18,6 @@ public class PlayerMovements : MonoBehaviour
     [SerializeField] public float minX, maxX; //by zaid
 
 
-    //Objects
-    [SerializeField] private PlayerGameInput gameInput;
-
-
     //return True if the player is walking
     public bool IsWalking() => isWalking;
 

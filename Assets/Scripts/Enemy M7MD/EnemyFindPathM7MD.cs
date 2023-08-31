@@ -7,7 +7,7 @@ public class EnemyFindPathM7MD : MonoBehaviour
 {
     [Header("Objects")]
     [SerializeField] Player player;
-    [SerializeField] MeleEnemyMovements movements;
+    [SerializeField] EnemiesMovments movements;
     [SerializeField] Animator animator;
 
     [Header("Information")]
