@@ -218,10 +218,10 @@ GameObject:
   - component: {fileID: 9024965200446612507}
   - component: {fileID: 1814503211440432205}
   - component: {fileID: 8697182149730618370}
-  - component: {fileID: 4182807155854939724}
   - component: {fileID: 5895084589615517361}
   - component: {fileID: 8303264306384666311}
   - component: {fileID: 2704701224709999067}
+  - component: {fileID: 7416469554727075717}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -245,7 +245,7 @@ Transform:
   - {fileID: 4614242047341965166}
   - {fileID: 1413078919037902810}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1814503211440432205
 MonoBehaviour:
@@ -266,6 +266,8 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
+  minX: 0
+  maxX: 0
   gameInput: {fileID: 0}
 --- !u!114 &8697182149730618370
 MonoBehaviour:
@@ -282,19 +284,6 @@ MonoBehaviour:
   healthBar: {fileID: 662627157084629725}
   maxHealth: 100
   currentHealth: 100
---- !u!114 &4182807155854939724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2170051183121025264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 558647e7ef6e34b4d92c6ca822b1a27c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AmmoInventory: 50
 --- !u!65 &5895084589615517361
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -343,6 +332,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllEnemys: {fileID: 0}
   sightRange: 15
+--- !u!114 &7416469554727075717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2170051183121025264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e7c694e19797a4fbe9c69dbc3b0d55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2916537966245615069
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +693,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 0
+  weaponsTypes: []
 --- !u!1 &6363926386439512406
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,10 +794,6 @@ PrefabInstance:
       propertyPath: Enemy.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
-      propertyPath: playerInventoryAmmo
-      value: 
-      objectReference: {fileID: 4182807155854939724}
     - target: {fileID: 5119190101604468707, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -878,10 +876,6 @@ PrefabInstance:
       propertyPath: Enemy.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2027927099823353006, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
-      propertyPath: playerInventoryAmmo
-      value: 
-      objectReference: {fileID: 4182807155854939724}
     - target: {fileID: 5119190101604468707, guid: 944f765b84e4c4012876d61f4dfc7b5a, type: 3}
       propertyPath: m_RootOrder
       value: -1
