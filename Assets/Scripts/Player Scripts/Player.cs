@@ -5,15 +5,16 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    public static Player Instance { get; private set; }
 
+    private void Awake()
+    {
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static Vector3 GetPlayerPos()
     {
-       
+        return Instance.transform.position;
     }
+
 }
