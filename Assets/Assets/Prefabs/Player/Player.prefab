@@ -222,6 +222,9 @@ GameObject:
   - component: {fileID: 8303264306384666311}
   - component: {fileID: 2704701224709999067}
   - component: {fileID: 7416469554727075717}
+  - component: {fileID: 8961106818767019263}
+  - component: {fileID: 2761336552979794723}
+  - component: {fileID: 7210665858751971772}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -245,7 +248,7 @@ Transform:
   - {fileID: 4614242047341965166}
   - {fileID: 1413078919037902810}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1814503211440432205
 MonoBehaviour:
@@ -344,6 +347,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e7c694e19797a4fbe9c69dbc3b0d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8961106818767019263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2170051183121025264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e654f1cdb0d5cf4b84720221523008d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2761336552979794723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2170051183121025264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e19990c503fb44b887abb566e26f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 8961106818767019263}
+--- !u!114 &7210665858751971772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2170051183121025264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f079802db6b6144892d978d0dd5a9ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 8869437797420911928, guid: e8f4c91a67472e14bb5c5202c3156949, type: 3}
+  EnemyBoxPartical: {fileID: 0}
 --- !u!1 &2916537966245615069
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +736,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 0
-  weaponsTypes: []
+  weaponsTypes:
+  - {fileID: 5571641588984482722, guid: c303a18f1cbdd4156b139b9e5b35d6a9, type: 3}
 --- !u!1 &6363926386439512406
 GameObject:
   m_ObjectHideFlags: 0

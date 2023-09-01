@@ -11,6 +11,8 @@ TagManager:
   - SelverKey
   - Box
   - EnemyBox
+  - SelverKeyBox
+  - GoldKeyBox
   layers:
   - Default
   - TransparentFX

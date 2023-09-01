@@ -7,30 +7,46 @@ using static UnityEngine.ParticleSystem;
 public class BoxDetective : MonoBehaviour
 {
     [SerializeField] GameObject Enemy;
+    [SerializeField] GameObject goldKey;
+    [SerializeField] GameObject silverKey;
 
-    [SerializeField] ParticleSystem EnemyBoxPartical;
+    [SerializeField] GameObject AllEnemys;
+    
+    [SerializeField] ParticleSystem BoxPartical;
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "EnemyBox")
         {
-            StartCoroutine(BoxBehavior(EnemyBoxPartical, collision, Enemy));
-
+            StartCoroutine(BoxBehavior(collision, Enemy));
         }
         else
+        if(collision.gameObject.tag == "SelverKeyBox")
         {
-
+            StartCoroutine(BoxBehavior(collision, silverKey));
+        }
+        else
+        if (collision.gameObject.tag == "GoldKeyBox")
+        {
+            StartCoroutine(BoxBehavior( collision,goldKey));
         }
     }
 
 
-    IEnumerator  BoxBehavior(ParticleSystem Particle,Collision collision,GameObject obj)
+    IEnumerator  BoxBehavior(Collision collision,GameObject obj)
     {
-        Particle.gameObject.SetActive(true);
+        GameObject ParticalTemp =
+        Instantiate(BoxPartical.gameObject, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
         yield return new WaitForSeconds(0.4f);
-        GameObject temp = Instantiate(Enemy, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
-        temp.SetActive(false);
         Destroy(collision.gameObject);
+        GameObject temp = Instantiate(obj, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+        temp.SetActive(false);
+        Destroy(ParticalTemp);
         temp.SetActive(true);
+        
+        if(obj.tag == "Enemy" )
+        {
+            temp.transform.parent = AllEnemys.transform;
+        }
     }
     IEnumerator instantiateGameObject(GameObject obj,GameObject go)
     {
