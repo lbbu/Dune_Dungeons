@@ -924,7 +924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1146336577948791913, guid: 1baf80066b0c6fd4c85edc343dfbe9b5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.77
+      value: 15.24
       objectReference: {fileID: 0}
     - target: {fileID: 1146336577948791913, guid: 1baf80066b0c6fd4c85edc343dfbe9b5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -966,6 +966,18 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 323412078}
+    - target: {fileID: 7262400502484952596, guid: 1baf80066b0c6fd4c85edc343dfbe9b5, type: 3}
+      propertyPath: moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262400502484952596, guid: 1baf80066b0c6fd4c85edc343dfbe9b5, type: 3}
+      propertyPath: RotationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7262400502484952596, guid: 1baf80066b0c6fd4c85edc343dfbe9b5, type: 3}
+      propertyPath: obstacleLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8119787085409333161, guid: 1baf80066b0c6fd4c85edc343dfbe9b5, type: 3}
       propertyPath: player
       value: 
@@ -973,6 +985,10 @@ PrefabInstance:
     - target: {fileID: 8119787085409333161, guid: 1baf80066b0c6fd4c85edc343dfbe9b5, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8119787085409333161, guid: 1baf80066b0c6fd4c85edc343dfbe9b5, type: 3}
+      propertyPath: attackRange
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8119787085409333161, guid: 1baf80066b0c6fd4c85edc343dfbe9b5, type: 3}
       propertyPath: enemyRotationSpeed

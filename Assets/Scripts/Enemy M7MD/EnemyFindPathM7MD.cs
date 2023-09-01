@@ -107,12 +107,15 @@ public class EnemyFindPathM7MD : MonoBehaviour
     private void ChasePlayer()
     {
 
-        FaceTarget();
+        float xVector = player.transform.position.x - transform.position.x;
+        float zVector = player.transform.position.z - transform.position.z;
+
+        Vector2 inputVector = new Vector2(xVector, zVector).normalized;
 
         //move towards your forward
-        movements.HandleMovements((Vector2)transform.forward.normalized);
+        movements.HandleMovements(inputVector);
 
-        if(Vector3.Distance(transform.position, player.transform.position) <= attackRange / 2)
+        if(Vector3.Distance(transform.position, player.transform.position) <= attackRange / 1.25)
         {
             state = State.AttackTarget;
             animator.SetBool(IS_MOVING_ANIMATION, false);
