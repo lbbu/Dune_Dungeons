@@ -32,7 +32,7 @@ public class PlayerMovements : MonoBehaviour
         float newPosition = transform.position.x + inputX * moveSpeed * Time.deltaTime;
         newPosition = Mathf.Clamp(newPosition, minX, maxX);
         transform.position = new Vector3(newPosition, transform.position.y, transform.position.z);
-       ==> These lines constrains the player's movement on the X-axis between the minX and maxX limits 
+       ==> These lines constrains the player's movement on the X-axis between the minX and maxX limits.
         */
 
         // HandleMovements();

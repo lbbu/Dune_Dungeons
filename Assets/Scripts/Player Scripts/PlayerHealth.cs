@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour , IHealth
+public class PlayerHealth : MonoBehaviour, IHealth
 {
 
     [SerializeField] private HealthBar healthBar;
@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour , IHealth
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth = 100;
 
+    public GameManegerScript GameManager;
+    private bool isDead = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -53,20 +55,30 @@ public class PlayerHealth : MonoBehaviour , IHealth
 
     public void TakeDamage(int damageAmount)
     {
+        if (isDead) { return; }
+
         currentHealth = Mathf.Clamp(currentHealth - damageAmount, 0, maxHealth);
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0 && !isDead)
         {
             //player Dye
+            isDead = true;
             Debug.Log("Dye");
+            gameObject.SetActive(false);
+            GameManager.gameOver();
+
             healthBar.SetHealth(currentHealth);
         }
         else
         {
-            healthBar.SetHealth(currentHealth);
+            healthBar.SetHealth(currentHealth); 
         }
 
     }
-
+    public bool IsDead()
+    {
+        return isDead;
+    }
+    
 
 }
