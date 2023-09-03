@@ -29,7 +29,6 @@ public class GameManegerScript : MonoBehaviour
 
     public void gameOver()
     {
-        // Activate the game over UI when called
         gameOverUI.SetActive(true);
     }
 
