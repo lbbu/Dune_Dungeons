@@ -17,17 +17,20 @@ public class BoxDetective : MonoBehaviour
     {
         if(collision.gameObject.tag == "EnemyBox")
         {
-            StartCoroutine(BoxBehavior(collision, Enemy));
+            //StartCoroutine(BoxBehavior(collision, Enemy));
+            boxBehavior(collision, Enemy);
         }
         else
         if(collision.gameObject.tag == "SelverKeyBox")
         {
-            StartCoroutine(BoxBehavior(collision, silverKey));
+            //StartCoroutine(BoxBehavior(collision, silverKey));
+            boxBehavior(collision, silverKey);
         }
         else
         if (collision.gameObject.tag == "GoldKeyBox")
         {
-            StartCoroutine(BoxBehavior( collision,goldKey));
+            //StartCoroutine(BoxBehavior( collision,goldKey));
+            boxBehavior(collision, goldKey);
         }
     }
 
@@ -36,23 +39,39 @@ public class BoxDetective : MonoBehaviour
     {
         GameObject ParticalTemp =
         Instantiate(BoxPartical.gameObject, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.6f);
         Destroy(collision.gameObject);
         GameObject temp = Instantiate(obj, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
         temp.SetActive(false);
-        Destroy(ParticalTemp);
         temp.SetActive(true);
-        
-        if(obj.tag == "Enemy" )
+        Destroy(ParticalTemp);
+
+        if (obj.tag == "Enemy" )
         {
             temp.transform.parent = AllEnemys.transform;
         }
     }
-    IEnumerator instantiateGameObject(GameObject obj,GameObject go)
+    void boxBehavior(Collision collision, GameObject obj)
     {
-        yield return new WaitForSeconds(0.3f);
-        Instantiate(Enemy, go.transform.position, go.transform.rotation);
-        Debug.Log("Instantiate!");
+        GameObject ParticalTemp =
+        Instantiate(BoxPartical.gameObject, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+        //yield return new WaitForSeconds(0.6f);
+        Destroy(collision.gameObject);
+        GameObject temp = Instantiate(obj, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+        temp.SetActive(false);
+        StartCoroutine(waitForSeconds(0.4f,ParticalTemp,temp));
+       // Destroy(ParticalTemp);
 
+        if (obj.tag == "Enemy")
+        {
+            temp.transform.parent = AllEnemys.transform;
+        }
+    }
+    IEnumerator waitForSeconds(float seconds,GameObject particalS,GameObject tempItem)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        Destroy(particalS);
+        tempItem.SetActive(true);
     }
 }

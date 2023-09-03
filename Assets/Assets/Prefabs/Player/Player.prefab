@@ -287,6 +287,7 @@ MonoBehaviour:
   healthBar: {fileID: 662627157084629725}
   maxHealth: 100
   currentHealth: 100
+  GameManager: {fileID: 0}
 --- !u!65 &5895084589615517361
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -359,6 +360,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e654f1cdb0d5cf4b84720221523008d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GoldKeys: 0
+  silverKeys: 0
 --- !u!114 &2761336552979794723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,7 +388,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 8869437797420911928, guid: e8f4c91a67472e14bb5c5202c3156949, type: 3}
-  EnemyBoxPartical: {fileID: 0}
+  goldKey: {fileID: 6886295534131644664, guid: 31113a8e20e2cea47962076356acc77f, type: 3}
+  silverKey: {fileID: 4263819693759671404, guid: 844176b82d2fe264dab5c1741c389cb5, type: 3}
+  AllEnemys: {fileID: 0}
+  BoxPartical: {fileID: 6192724089161036655, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}
 --- !u!1 &2916537966245615069
 GameObject:
   m_ObjectHideFlags: 0

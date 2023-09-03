@@ -595,7 +595,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.9
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -685,25 +685,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24943056}
     - target: {fileID: 7210665858751971772, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
-      propertyPath: goldKey
-      value: 
-      objectReference: {fileID: 6886295534131644664, guid: 31113a8e20e2cea47962076356acc77f, type: 3}
-    - target: {fileID: 7210665858751971772, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: AllEnemys
       value: 
       objectReference: {fileID: 24943056}
-    - target: {fileID: 7210665858751971772, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
-      propertyPath: silverKey
-      value: 
-      objectReference: {fileID: 4263819693759671404, guid: 844176b82d2fe264dab5c1741c389cb5, type: 3}
-    - target: {fileID: 7210665858751971772, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
-      propertyPath: BoxPartical
-      value: 
-      objectReference: {fileID: 6192724089161036655, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}
-    - target: {fileID: 7210665858751971772, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
-      propertyPath: EnemyBoxPartical
-      value: 
-      objectReference: {fileID: 6192724089161036655, guid: e17d9a3f04750764c8c0a7a0461e4c3b, type: 3}
     - target: {fileID: 7304948088498022963, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: mainCamera
       value: 
