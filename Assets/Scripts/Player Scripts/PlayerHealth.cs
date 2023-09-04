@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, IHealth
 {
+    public static event Action OnPlayerDeath; 
 
     [SerializeField] private HealthBar healthBar;
 
@@ -63,10 +65,10 @@ public class PlayerHealth : MonoBehaviour, IHealth
         {
             //player Dye
             isDead = true;
-            Debug.Log("Dye");
-            gameObject.SetActive(false);
-            GameManager.gameOver();
-
+            Debug.Log("Player Dead!");
+            OnPlayerDeath?.Invoke();
+            gameObject.SetActive(false); //the player disappears when he dies.
+            
             healthBar.SetHealth(currentHealth);
         }
         else

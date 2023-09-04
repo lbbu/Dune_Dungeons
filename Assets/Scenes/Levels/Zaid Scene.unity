@@ -157,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 630817354}
     - target: {fileID: 8266780679734215117, guid: e8f4c91a67472e14bb5c5202c3156949, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8266780679734215117, guid: e8f4c91a67472e14bb5c5202c3156949, type: 3}
       propertyPath: m_LocalPosition.x
@@ -311,7 +311,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &250231338
 GameObject:
@@ -491,7 +491,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Quit button works
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &703611779
@@ -624,7 +624,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!224 &733859529 stripped
 RectTransform:
@@ -724,7 +724,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &756785454
 BoxCollider:
@@ -850,7 +850,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &812933115
 GameObject:
@@ -955,7 +955,7 @@ GameObject:
   - component: {fileID: 1031336797}
   - component: {fileID: 1031336796}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -974,8 +974,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1085771686}
-  m_Father: {fileID: 1768568840}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1040,7 +1040,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1074,7 +1074,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1085771685
 GameObject:
@@ -1550,7 +1550,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1768568839
 GameObject:
@@ -1582,9 +1582,8 @@ Transform:
   m_Children:
   - {fileID: 2093042784}
   - {fileID: 1087715495}
-  - {fileID: 1031336795}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1796542942
 GameObject:
@@ -1897,7 +1896,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1085480056869666080, guid: b71b4bf74798774469b41eed9ff9e818, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1085480056869666080, guid: b71b4bf74798774469b41eed9ff9e818, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2133,6 +2132,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7210665858751971772, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
+      propertyPath: AllEnemys
+      value: 
+      objectReference: {fileID: 1034259682}
     - target: {fileID: 7304948088498022963, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: mainCamera
       value: 
@@ -2147,7 +2150,7 @@ PrefabInstance:
       objectReference: {fileID: 1668748357}
     - target: {fileID: 9024965200446612507, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9024965200446612507, guid: 4ac94800cbfbcc440a443e5681e3693c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2300,7 +2303,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8568591989233305474, guid: 66dd80d0db4c49d4ba2a8363a03a6e72, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8568591989233305474, guid: 66dd80d0db4c49d4ba2a8363a03a6e72, type: 3}
       propertyPath: m_LocalPosition.x
