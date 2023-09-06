@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour, IEnemy
         {
             Debug.Log("Dead!");
             Destroy(gameObject);
+            ScoreManager.Instance.IncrementScore();
+
         }
     }
 }

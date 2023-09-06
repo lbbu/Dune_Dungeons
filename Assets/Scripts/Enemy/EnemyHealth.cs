@@ -5,7 +5,7 @@ using UnityEngine.InputSystem.Processors;
 
 public class EnemyHealth : MonoBehaviour,IEnemy, IHealth
 {
-
+    
 
     [SerializeField] private HealthBar healthBar;
 
@@ -58,7 +58,8 @@ public class EnemyHealth : MonoBehaviour,IEnemy, IHealth
             healthBar.SetHealth(currentHealth);
 
             isDead = true;
-
+           
+           // ScoreManager.Instance.IncrementScore();
         }
         else
         {
@@ -66,5 +67,6 @@ public class EnemyHealth : MonoBehaviour,IEnemy, IHealth
         }
 
     }
+
 
 }
