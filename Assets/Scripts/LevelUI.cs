@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class LevelUI : MonoBehaviour
 {
     public GameObject gameOverUI;
-   // [SerializeField]
-  //  public GameObject ScoreManager;
-    public TextMeshProUGUI pointsText;
-    
+    // [SerializeField]
+    //  public GameObject ScoreManager;
+    // public TextMeshProUGUI pointsText;
+    public Text pointsText;
+
     private ScoreManager scoreManager;
 
 
@@ -36,12 +37,16 @@ public class LevelUI : MonoBehaviour
     private void EnableGameOverMenue()
     {
         gameOverUI.SetActive(true);
-        UpdateScore(scoreManager.GetTotalScore());
+      UpdateScore(scoreManager !=null ? scoreManager.GetTotalScore():0); //IT SHOULD NOT BE LIKE THAT!!
+        // UpdateScore(scoreManager.GetTotalScore()); //Perfict.
+        Time.timeScale = 0;
     }
 
 
     void Start()
     {
+        if (Time.timeScale == 0)
+            Time.timeScale = 1;
         gameOverUI.SetActive(false);
         scoreManager = FindObjectOfType<ScoreManager>();
         // Cursor.visible = false;
@@ -64,17 +69,5 @@ public class LevelUI : MonoBehaviour
         Debug.Log("Quit button");
 
     }
-    void Update()
-    {
-        if (gameOverUI.activeInHierarchy)
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
-    }     
+        
 }
