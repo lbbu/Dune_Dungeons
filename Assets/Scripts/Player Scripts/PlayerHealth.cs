@@ -12,7 +12,6 @@ public class PlayerHealth : MonoBehaviour, IHealth
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private int currentHealth = 100;
 
-    public GameManegerScript GameManager;
     private bool isDead = false;
     // Start is called before the first frame update
     void Start()

@@ -1,25 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class GameManegerScript : MonoBehaviour
+public class LevelUI : MonoBehaviour
 {
     public GameObject gameOverUI;
    // [SerializeField]
   //  public GameObject ScoreManager;
-    public Text pointsText;
+    public TextMeshProUGUI pointsText;
     
     private ScoreManager scoreManager;
 
 
-    public void Setup(int score)
+    public void UpdateScore(int score)
     {
 
-        gameObject.SetActive(true);
+        
         // Debug.Log the score for troubleshooting
         Debug.Log("Received Score: " + score); //just to check before adding.
-            pointsText.text ="Total Score: "+score.ToString() + " Points";
+            pointsText.text =$"Total Score:{score} Points";
         
         Debug.Log("Your Score is:"+score);
     }
@@ -32,10 +33,10 @@ public class GameManegerScript : MonoBehaviour
     {
         PlayerHealth.OnPlayerDeath -= EnableGameOverMenue;
     }
-    public void EnableGameOverMenue()
+    private void EnableGameOverMenue()
     {
         gameOverUI.SetActive(true);
-        Setup(scoreManager != null ? scoreManager.GetTotalScore() : 0);
+        UpdateScore(scoreManager.GetTotalScore());
     }
 
 
@@ -46,18 +47,18 @@ public class GameManegerScript : MonoBehaviour
         // Cursor.visible = false;
         // Cursor.lockState = CursorLockMode.Locked;
     }
-    public void restart()
+    public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//current Scene
         Debug.Log("Restart button");
     }
-    public void mainMenu()
+    public void MainMenu()
     {
         SceneManager.LoadScene(0);//should be the main menue index;
-        Debug.Log("MainMenue button");
+        Debug.Log("MainMenu button");
     }
 
-    public void quit()
+    public void QuitGame()
     {
         Application.Quit();
         Debug.Log("Quit button");
