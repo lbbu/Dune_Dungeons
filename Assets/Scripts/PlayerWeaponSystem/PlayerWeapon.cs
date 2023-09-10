@@ -32,7 +32,6 @@ public class PlayerWeapon : MonoBehaviour
     void Update()
     {
         UpdateNearbyEnemies();
-        //TODO edit input from mouse to UI button, just edit "shootAction"
        isListEmpty = facingEnemy.GetIsEmptyListOfEnemys();
         isWalking = PlayerMovement.IsWalking();
         shootAction();
@@ -41,7 +40,7 @@ public class PlayerWeapon : MonoBehaviour
     private void shootAction()
     {
 
-        if (CanShoot()) //Input.GetKeyDown(KeyCode.Mouse1) 
+        if (CanShoot())
         {
             shoot();
         }
@@ -70,7 +69,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         nearbyEnemies.Clear();
 
-        foreach (Transform enemy in AllEnemys.transform) // Make sure to use Enemy.transform to access child transforms
+        foreach (Transform enemy in AllEnemys.transform)
         {
             float distance = Vector3.Distance(enemy.position, transform.position);
             if (distance <= detectionRange)

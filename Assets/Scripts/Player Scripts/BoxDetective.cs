@@ -6,6 +6,7 @@ using static UnityEngine.ParticleSystem;
 
 public class BoxDetective : MonoBehaviour
 {
+
     [SerializeField] GameObject Enemy;
     [SerializeField] GameObject goldKey;
     [SerializeField] GameObject silverKey;
@@ -35,32 +36,16 @@ public class BoxDetective : MonoBehaviour
     }
 
 
-    IEnumerator  BoxBehavior(Collision collision,GameObject obj)
-    {
-        GameObject ParticalTemp =
-        Instantiate(BoxPartical.gameObject, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
-        yield return new WaitForSeconds(0.6f);
-        Destroy(collision.gameObject);
-        GameObject temp = Instantiate(obj, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
-        temp.SetActive(false);
-        temp.SetActive(true);
-        Destroy(ParticalTemp);
-
-        if (obj.tag == "Enemy" )
-        {
-            temp.transform.parent = AllEnemys.transform;
-        }
-    }
     void boxBehavior(Collision collision, GameObject obj)
     {
         GameObject ParticalTemp =
         Instantiate(BoxPartical.gameObject, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
-        //yield return new WaitForSeconds(0.6f);
         Destroy(collision.gameObject);
-        GameObject temp = Instantiate(obj, collision.gameObject.transform.position, collision.gameObject.transform.rotation);
+        Quaternion newRotation = Quaternion.Euler(90, collision.gameObject.transform.rotation.eulerAngles.y, collision.gameObject.transform.rotation.eulerAngles.z);
+        GameObject temp = Instantiate(obj, collision.gameObject.transform.position, newRotation);
         temp.SetActive(false);
-        StartCoroutine(waitForSeconds(0.4f,ParticalTemp,temp));
-       // Destroy(ParticalTemp);
+        StartCoroutine(waitForSeconds(0.6f,ParticalTemp,temp));
+     
 
         if (obj.tag == "Enemy")
         {
