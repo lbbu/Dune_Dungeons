@@ -9,8 +9,8 @@ public class LevelUI : MonoBehaviour
     public GameObject gameOverUI;
     // [SerializeField]
     //  public GameObject ScoreManager;
-    // public TextMeshProUGUI pointsText;
-    public Text pointsText;
+     public TextMeshProUGUI pointsText;
+   // public Text pointsText;
 
     private ScoreManager scoreManager;
 
@@ -48,7 +48,7 @@ public class LevelUI : MonoBehaviour
         if (Time.timeScale == 0)
             Time.timeScale = 1;
         gameOverUI.SetActive(false);
-        scoreManager = FindObjectOfType<ScoreManager>();
+       // scoreManager = FindObjectOfType<ScoreManager>();
         // Cursor.visible = false;
         // Cursor.lockState = CursorLockMode.Locked;
     }

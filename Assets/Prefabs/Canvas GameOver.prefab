@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cf59e9d74ad3c4ba05e8d9e3195791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsText: {fileID: 3879498067858625844}
+  pointsText: {fileID: 6314979300590383797}
 --- !u!1 &2841352536956021214
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,13 +478,14 @@ GameObject:
   - component: {fileID: 6422151705129431359}
   - component: {fileID: 3234581873499664023}
   - component: {fileID: 6314979300590383797}
+  - component: {fileID: 6802488084014540456}
   m_Layer: 5
   m_Name: PointsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6422151705129431359
 RectTransform:
   m_ObjectHideFlags: 0
@@ -602,6 +603,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6802488084014540456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3722036720535821412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11cf59e9d74ad3c4ba05e8d9e3195791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsText: {fileID: 6314979300590383797}
 --- !u!1 &4587796177724517834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,7 +1090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3396395341685650918
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1151,4 +1165,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11cf59e9d74ad3c4ba05e8d9e3195791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsText: {fileID: 3879498067858625844}
+  pointsText: {fileID: 0}
