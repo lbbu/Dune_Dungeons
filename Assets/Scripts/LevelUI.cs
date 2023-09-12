@@ -7,12 +7,11 @@ using UnityEngine.UI;
 public class LevelUI : MonoBehaviour
 {
     public GameObject gameOverUI;
-    // [SerializeField]
-    //  public GameObject ScoreManager;
+   
      public TextMeshProUGUI pointsText;
    // public Text pointsText;
 
-    private ScoreManager scoreManager;
+  
 
 
     public void UpdateScore(int score)
@@ -37,8 +36,8 @@ public class LevelUI : MonoBehaviour
     private void EnableGameOverMenue()
     {
         gameOverUI.SetActive(true);
-      UpdateScore(scoreManager !=null ? scoreManager.GetTotalScore():0); //IT SHOULD NOT BE LIKE THAT!!
-        // UpdateScore(scoreManager.GetTotalScore()); //Perfict.
+     // UpdateScore(scoreManager !=null ? scoreManager.GetTotalScore():0); // SHOULD NOT BE LIKE THAT!!
+         UpdateScore(ScoreManager.Instance .GetTotalScore()); //Perfect.
         Time.timeScale = 0;
     }
 
