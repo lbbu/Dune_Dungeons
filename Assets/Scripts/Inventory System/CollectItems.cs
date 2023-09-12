@@ -7,7 +7,7 @@ public class CollectItems : MonoBehaviour
 {
 
   [SerializeField] PlayerInventory inventory;
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionExit(Collision collision)
     {
         Debug.Log("Collision!");
 
