@@ -151,7 +151,6 @@ RectTransform:
   - {fileID: 2651463321665480163}
   - {fileID: 8138795451116125489}
   - {fileID: 7648962147929718895}
-  - {fileID: 3396395341685650918}
   - {fileID: 6422151705129431359}
   m_Father: {fileID: 8688530127156316378}
   m_RootOrder: -1
@@ -478,7 +477,6 @@ GameObject:
   - component: {fileID: 6422151705129431359}
   - component: {fileID: 3234581873499664023}
   - component: {fileID: 6314979300590383797}
-  - component: {fileID: 6802488084014540456}
   m_Layer: 5
   m_Name: PointsText
   m_TagString: Untagged
@@ -603,19 +601,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6802488084014540456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3722036720535821412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11cf59e9d74ad3c4ba05e8d9e3195791, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointsText: {fileID: 6314979300590383797}
 --- !u!1 &4587796177724517834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,97 +1057,3 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Restart
---- !u!1 &9019471732633220849
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3396395341685650918}
-  - component: {fileID: 6806599318882983053}
-  - component: {fileID: 3879498067858625844}
-  - component: {fileID: 5542538610466006172}
-  m_Layer: 5
-  m_Name: 'PointsText '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &3396395341685650918
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9019471732633220849}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1719959457006919937}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.71844727}
-  m_AnchorMax: {x: 0.5, y: 0.71844727}
-  m_AnchoredPosition: {x: -2.2419, y: 70}
-  m_SizeDelta: {x: 906.4863, y: 148.5946}
-  m_Pivot: {x: 0.5, y: 1}
---- !u!222 &6806599318882983053
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9019471732633220849}
-  m_CullTransparentMesh: 1
---- !u!114 &3879498067858625844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9019471732633220849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.7169812, g: 0.022997461, b: 0.022997461, a: 0.78039217}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
-    m_FontSize: 79
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 204
-    m_Alignment: 4
-    m_AlignByGeometry: 1
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Total Score: 10 Points'
---- !u!114 &5542538610466006172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9019471732633220849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11cf59e9d74ad3c4ba05e8d9e3195791, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointsText: {fileID: 0}

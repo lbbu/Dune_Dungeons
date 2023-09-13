@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
 {
     private int totalScore ;
    // public Text pointsText;
-     public TextMeshProUGUI pointsText;
+    
     
 
     // Singleton instance for ScoreManager
