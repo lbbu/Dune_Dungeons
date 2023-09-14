@@ -17,6 +17,7 @@ public class PlayerWeapon : MonoBehaviour
     bool isWalking = false;
     bool isListEmpty = false;
 
+    bool isShooting;
 
     Transform closestEnemy;
     List<Transform> nearbyEnemies = new List<Transform>();
@@ -24,42 +25,46 @@ public class PlayerWeapon : MonoBehaviour
     float detectionRange = 10f;
     [SerializeField] float sightRange = 14f;
 
-    private void Start()
-    {
-        
-    }
+   
 
     void Update()
     {
         UpdateNearbyEnemies();
        isListEmpty = facingEnemy.GetIsEmptyListOfEnemys();
         isWalking = PlayerMovement.IsWalking();
-        shootAction();
+        ShootAction();
     }
 
-    private void shootAction()
+    private void ShootAction()
     {
 
         if (CanShoot())
         {
-            shoot();
+            Shoot();
+            isShooting = true;
+        }else
+        {
+            isShooting = false;
         }
 
     }
 
-    private void shoot()
+    public bool IsShooting() => isShooting;
+    private void Shoot()
     {
-        nextShootTime = Time.time + 1 / fireRate;
-        Instantiate(bullet, shootPoint.position, shootPoint.rotation);
-        
+        if (Time.time >= nextShootTime)
+        {
+            nextShootTime = Time.time + 1 / fireRate;
+            Instantiate(bullet, shootPoint.position, shootPoint.rotation);
+        }
+
     }
 
     bool CanShoot()
     {
        
         return
-            Time.time >= nextShootTime 
-            && isActive
+             isActive
             && !isWalking
             && !isListEmpty
             && closestEnemy != null;
@@ -103,11 +108,11 @@ public class PlayerWeapon : MonoBehaviour
             return true;
         return false;
     }
-    public  void setIsActive(bool b)
+    public  void SetIsActive(bool active)
     {
-        isActive = b;
+        isActive = active;
     }
-    public bool getIsActive()
+    public bool GetIsActive()
     {
         return isActive;
     }

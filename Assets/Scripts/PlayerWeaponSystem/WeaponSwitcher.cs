@@ -23,6 +23,7 @@ public class WeaponSwitcher : MonoBehaviour
         SwitchWeapon();
     }
 
+    public int GetSelectedWeapon() { return selectedWeapon; }
     private void SwitchWeapon()
     {
         int prevSelectWeapon = selectedWeapon;
@@ -58,12 +59,12 @@ public class WeaponSwitcher : MonoBehaviour
             if (i == selectedWeapon)
             {
                 weapon.gameObject.SetActive(true);
-                weapon.gameObject.GetComponent<PlayerWeapon>().setIsActive(true);
+                weapon.gameObject.GetComponent<PlayerWeapon>().SetIsActive(true);
             }
             else
             {
                 weapon.gameObject.SetActive(false);
-                weapon.gameObject.GetComponent<PlayerWeapon>().setIsActive(false);
+                weapon.gameObject.GetComponent<PlayerWeapon>().SetIsActive(false);
 
             }
             i++;
