@@ -66,7 +66,7 @@ public class PlayerHealth : MonoBehaviour, IHealth
             isDead = true;
             Debug.Log("Player Dead!");
             OnPlayerDeath?.Invoke();
-            gameObject.SetActive(false); //the player disappears when he dies.
+            //gameObject.SetActive(false); //the player disappears when he dies.
             
             healthBar.SetHealth(currentHealth);
         }

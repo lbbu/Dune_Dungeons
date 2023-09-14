@@ -936,6 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2c9bd6c4ad61844919a7515a244a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealth: {fileID: 8697182149730618370}
   playerMovement: {fileID: 1814503211440432205}
   WeaponHandler: {fileID: 5182393312969158418}
   weapons:

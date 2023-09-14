@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
+    [SerializeField] PlayerHealth playerHealth;
     [SerializeField] PlayerMovements playerMovement;
     [SerializeField] WeaponSwitcher WeaponHandler;
     [SerializeField] List<GameObject> weapons = new List<GameObject>();
 
     int SelectedWeapon;
-    void Start()
-    {
-        
-           
-        
-    }
 
 
     void Update()
@@ -31,10 +26,6 @@ public class AnimationController : MonoBehaviour
                 GetComponent<Animator>().SetBool("walk", false);
             }
 
-        Debug.Log("SelectedWeapon "+SelectedWeapon);
-
-
-        Debug.Log("WeaponsCount " + weapons.Count);
 
         if (SelectedWeapon >= 0 && SelectedWeapon < weapons.Count)
         {
@@ -48,6 +39,11 @@ public class AnimationController : MonoBehaviour
             }
         }
         
-
+        if(playerHealth.IsDead())
+        {
+            weapons[SelectedWeapon].GetComponent<PlayerWeapon>().SetIsActive(false);
+            GetComponent<Animator>().SetTrigger("death");
+        }
+        
     }
 }
