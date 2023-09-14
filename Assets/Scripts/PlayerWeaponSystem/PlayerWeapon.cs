@@ -6,18 +6,19 @@ public class PlayerWeapon : MonoBehaviour
 {
 
     [SerializeField] float fireRate = 1f;
-    //[SerializeField] float StartShootDistance = 10f;
-    //[SerializeField] int NumberOfEnemes = 0;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPoint;
     [SerializeField] PlayerMovements PlayerMovement ;
     [SerializeField] FacingEnemy facingEnemy;
+
     float nextShootTime;
+
     bool isActive= false;
     bool isWalking = false;
     bool isListEmpty = false;
-
     bool isShooting;
+
+    
 
     Transform closestEnemy;
     List<Transform> nearbyEnemies = new List<Transform>();
@@ -83,6 +84,7 @@ public class PlayerWeapon : MonoBehaviour
             }
         }
 
+        
         FindClosestEnemy();
     }
 
@@ -104,7 +106,7 @@ public class PlayerWeapon : MonoBehaviour
 
     public bool GetIsEmptyListOfEnemys()
     {
-        if (nearbyEnemies.Count == 0)
+        if ( AllEnemys.transform.childCount == 0)
             return true;
         return false;
     }

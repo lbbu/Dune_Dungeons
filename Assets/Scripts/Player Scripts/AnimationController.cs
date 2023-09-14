@@ -45,5 +45,13 @@ public class AnimationController : MonoBehaviour
             GetComponent<Animator>().SetTrigger("death");
         }
         
+
+        if(weapons[SelectedWeapon].GetComponent<PlayerWeapon>().GetIsEmptyListOfEnemys())
+        {
+           GetComponent<Animator>().SetTrigger("victory");
+           GetComponent<Animator>().SetBool("idle", false );
+
+        }
+
     }
 }
