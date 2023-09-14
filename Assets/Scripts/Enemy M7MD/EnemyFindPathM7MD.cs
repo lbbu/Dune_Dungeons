@@ -2,17 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyFindPathM7MD : MonoBehaviour
 {
     [Header("Objects")]
     [SerializeField] Player player;
-    [SerializeField] EnemiesMovments movements;
     [SerializeField] Animator animator;
+    [SerializeField] NavMeshAgent enemyNavMeshAgent;
 
     [Header("Information")]
-    [SerializeField] private float enemyRotationSpeed = 15f;
+    [SerializeField] private float enemyRotationSpeed = 10f;
     [SerializeField] private float attackRange = 2f;
+    [SerializeField] private LayerMask whatIsGround, whatIsPlayer;
+
+    private bool playerInSightRange, playerInAttackRange;
 
     const string IS_MOVING_ANIMATION = "isMoving";
     const string IS_ATTACKING_ANIMATION = "isAttacking";
@@ -32,11 +36,11 @@ public class EnemyFindPathM7MD : MonoBehaviour
         if (!player)
             player = FindObjectOfType<Player>();
 
-        if(!movements)
-            movements = GetComponent<MeleEnemyMovements>();
-
         if(!animator)
             animator = GetComponent<Animator>();
+
+        if(!enemyNavMeshAgent)
+            enemyNavMeshAgent = GetComponent<NavMeshAgent>();
         
     }
 
@@ -83,66 +87,68 @@ public class EnemyFindPathM7MD : MonoBehaviour
     private void Idle()
     {
 
-        if (Vector3.Distance(transform.position, player.transform.position) > attackRange)
-        {
+        //wait for 1 sec then
 
-            animator.SetBool(IDLE_ANIMATION, false);
-            animator.SetBool(IS_MOVING_ANIMATION, true);
-            animator.SetBool(IS_ATTACKING_ANIMATION, false);
 
-            state = State.ChaseTarget;
 
-        }
-        else
-        {
+        state = State.ChaseTarget;
+        //go from idle animation to run animation
+        animator.SetBool(IDLE_ANIMATION, false);
+        animator.SetBool(IS_MOVING_ANIMATION, true);
 
-            animator.SetBool(IDLE_ANIMATION, false);
-            animator.SetBool(IS_MOVING_ANIMATION, false);
-            animator.SetBool(IS_ATTACKING_ANIMATION, true);
 
-        }
 
     }
 
     private void ChasePlayer()
     {
 
-        float xVector = player.transform.position.x - transform.position.x;
-        float zVector = player.transform.position.z - transform.position.z;
 
-        Vector2 inputVector = new Vector2(xVector, zVector).normalized;
+        enemyNavMeshAgent.SetDestination(player.transform.position);
 
-        //move towards your forward
-        movements.HandleMovements(inputVector);
-
-        if(Vector3.Distance(transform.position, player.transform.position) <= attackRange / 1.25)
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange / 1.5f, whatIsPlayer);
+        
+        if (playerInAttackRange)
         {
             state = State.AttackTarget;
+            //go from run animation to attack animation
             animator.SetBool(IS_MOVING_ANIMATION, false);
             animator.SetBool(IS_ATTACKING_ANIMATION, true);
         }
-
+        
     }
 
     void FaceTarget()
     {        
         Vector3 direction = (player.transform.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, enemyRotationSpeed * Time.deltaTime);
-        
+        Quaternion test = Quaternion.Slerp(transform.rotation, lookRotation, enemyRotationSpeed * Time.deltaTime);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, test, enemyRotationSpeed * Time.deltaTime);
+
     }
 
     private void AttackPlayer()
     {
-        if(Vector3.Distance(transform.position, player.transform.position) > attackRange * 1.2f)
+
+        enemyNavMeshAgent.SetDestination(transform.position);
+        FaceTarget();
+
+        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange * 1.1f, whatIsPlayer);
+
+        if (!playerInAttackRange)
         {
 
+            state = State.ChaseTarget;
+            //go from attack animation to run animation
             animator.SetBool(IS_MOVING_ANIMATION, true);
             animator.SetBool(IS_ATTACKING_ANIMATION, false);
 
-            state = State.ChaseTarget;
+
+
 
         }
+
     }
 
     private void OnDrawGizmosSelected()
