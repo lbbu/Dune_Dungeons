@@ -6,17 +6,19 @@ public class PlayerWeapon : MonoBehaviour
 {
 
     [SerializeField] float fireRate = 1f;
-    //[SerializeField] float StartShootDistance = 10f;
-    //[SerializeField] int NumberOfEnemes = 0;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPoint;
     [SerializeField] PlayerMovements PlayerMovement ;
     [SerializeField] FacingEnemy facingEnemy;
+
     float nextShootTime;
+
     bool isActive= false;
     bool isWalking = false;
     bool isListEmpty = false;
+    bool isShooting;
 
+    
 
     Transform closestEnemy;
     List<Transform> nearbyEnemies = new List<Transform>();
@@ -24,42 +26,46 @@ public class PlayerWeapon : MonoBehaviour
     float detectionRange = 10f;
     [SerializeField] float sightRange = 14f;
 
-    private void Start()
-    {
-        
-    }
+   
 
     void Update()
     {
         UpdateNearbyEnemies();
        isListEmpty = facingEnemy.GetIsEmptyListOfEnemys();
         isWalking = PlayerMovement.IsWalking();
-        shootAction();
+        ShootAction();
     }
 
-    private void shootAction()
+    private void ShootAction()
     {
 
         if (CanShoot())
         {
-            shoot();
+            Shoot();
+            isShooting = true;
+        }else
+        {
+            isShooting = false;
         }
 
     }
 
-    private void shoot()
+    public bool IsShooting() => isShooting;
+    private void Shoot()
     {
-        nextShootTime = Time.time + 1 / fireRate;
-        Instantiate(bullet, shootPoint.position, shootPoint.rotation);
-        
+        if (Time.time >= nextShootTime)
+        {
+            nextShootTime = Time.time + 1 / fireRate;
+            Instantiate(bullet, shootPoint.position, shootPoint.rotation);
+        }
+
     }
 
     bool CanShoot()
     {
        
         return
-            Time.time >= nextShootTime 
-            && isActive
+             isActive
             && !isWalking
             && !isListEmpty
             && closestEnemy != null;
@@ -78,6 +84,7 @@ public class PlayerWeapon : MonoBehaviour
             }
         }
 
+        
         FindClosestEnemy();
     }
 
@@ -99,15 +106,15 @@ public class PlayerWeapon : MonoBehaviour
 
     public bool GetIsEmptyListOfEnemys()
     {
-        if (nearbyEnemies.Count == 0)
+        if ( AllEnemys.transform.childCount == 0)
             return true;
         return false;
     }
-    public  void setIsActive(bool b)
+    public  void SetIsActive(bool active)
     {
-        isActive = b;
+        isActive = active;
     }
-    public bool getIsActive()
+    public bool GetIsActive()
     {
         return isActive;
     }
