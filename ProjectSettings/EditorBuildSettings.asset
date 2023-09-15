@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level02.unity
     guid: 9052fa8c97a59f9489f361a7db67f58d
   - enabled: 1
-    path: Assets/Scenes/Enemy.unity
+    path: Assets/Scenes/Ahmad Scene.unity
     guid: 73802b63e17791d4aaf86702507ec758
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e3610aa906493174f81710e09af630d4, type: 2}

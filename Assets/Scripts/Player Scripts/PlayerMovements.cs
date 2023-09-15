@@ -22,6 +22,14 @@ public class PlayerMovements : MonoBehaviour
     //return True if the player is walking
     public bool IsWalking() => isWalking;
 
+    public void SetMoveSpeed(float speed)
+    {
+        moveSpeed = speed;
+    }
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
    
 
     // Update is called once per frame
