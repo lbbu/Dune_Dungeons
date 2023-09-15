@@ -7,8 +7,8 @@ public class CameraFollower : MonoBehaviour
     public Transform target; // The player's transform
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
-    //   public Vector2 minBounds; // Minimum camera position  minX=-68.424 & Y-Left=92.29285
-    //  public Vector2 maxBounds; // Maximum camera position  maxX=-94.91066  &Y-Right=92.2928
+     // Minimum camera position  minX=-68.424 & Y-Left=92.29285
+     // Maximum camera position  maxX=-94.91066  &Y-Right=92.2928
 
     void LateUpdate()
     {
