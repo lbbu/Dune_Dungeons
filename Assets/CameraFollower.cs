@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class CameraFollower : MonoBehaviour
 {
-    // first approach
+    /*
+    // first approach  X=0  Y=68  Z=-12.09
     public Transform target; // The player's transform
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
@@ -22,8 +23,24 @@ public class CameraFollower : MonoBehaviour
         // Smoothly move the camera towards the desired position
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothedPosition;
-    }
+    }*/
     //************************************************************************************************************
+    PlayerMovements player;
+    private void Start()
+    {
+        player = FindObjectOfType<PlayerMovements>();
+    }
+    private void Update()
+    {
+        CamFollow();
+    }
+
+    public void CamFollow()
+    {
+        Vector3 TargetPos =
+         new Vector3(transform.position.x, transform.position.y, player.transform.position.z);
+        transform.position = Vector3.Lerp(transform.position,TargetPos,1);
+    }
     /* 
                      Second approach
 
