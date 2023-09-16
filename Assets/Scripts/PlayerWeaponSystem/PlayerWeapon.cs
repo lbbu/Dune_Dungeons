@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class PlayerWeapon : MonoBehaviour
 {
+
+    public static event System.Action ShootingEvent;
+
 
     [SerializeField] float fireRate = 1f;
     [SerializeField] GameObject bullet;
@@ -43,12 +48,18 @@ public class PlayerWeapon : MonoBehaviour
         {
             Shoot();
             isShooting = true;
-        }else
+            ShootingEvent?.Invoke();
+
+        }
+        else
         {
             isShooting = false;
         }
 
     }
+
+    
+    
 
     public bool IsShooting() => isShooting;
     private void Shoot()
