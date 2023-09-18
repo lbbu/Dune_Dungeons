@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: a708f1c4ab34c9848a52ca12dbde75a2
+guid: d8b3f385fbd002a44a633f90e7dbd3cf
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: BASE COLOR
-    second: {fileID: 2100000, guid: f386a15a1d6a0c741ad8b9f6b71f4e24, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -83,6 +78,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips:
+  - e525ddfa67405ac4dacfb31dab313df7
   - 4ac80b02f97989149bd608110fd644d0
   - 13ff7753c87400343b6edc8f41043d3e
   importAnimation: 1
