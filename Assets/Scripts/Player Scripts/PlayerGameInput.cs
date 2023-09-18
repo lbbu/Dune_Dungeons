@@ -13,7 +13,13 @@ public class PlayerGameInput : MonoBehaviour
 
     private Finger MovementFinger;
     private Vector2 inputVector;
- 
+
+
+    private void Awake()
+    {
+        if(!player)
+            player = FindObjectOfType<PlayerMovements>();
+    }
 
     private void Update()
     {
