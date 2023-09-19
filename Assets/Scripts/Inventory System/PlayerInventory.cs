@@ -8,8 +8,8 @@ public class PlayerInventory: MonoBehaviour
     List<GoldeKeyBase> Gkey = new List<GoldeKeyBase>();
     List<SelverKeyBase> Skey = new List<SelverKeyBase>();
 
-   [SerializeField] int GoldKeys;
-   [SerializeField] int silverKeys;
+   [SerializeField] int GoldKeys = 0;
+   [SerializeField] int silverKeys = 0;
 
 
     int Coins;
@@ -30,6 +30,28 @@ public class PlayerInventory: MonoBehaviour
     {
         Skey.Add(new SelverKeyBase());
         Debug.Log(silverKeys + " Selver");
+    }
+
+
+    public int GetSilverKeyNum()
+    {
+        return silverKeys;
+    }
+    public int GetGoldKeyNum()
+    {
+        return GoldKeys;
+    }
+
+    public void DecreaseGoldKeyNum(int amountOfKeys)
+    {
+        Gkey.RemoveAt(0);
+        Debug.Log("DEC GOLD "+ GoldKeys);
+    }
+    public void DecreaseSetSilverKeyNum(int amountOfKeys)
+    {
+        
+        Skey.RemoveAt(0);
+        Debug.Log("DEC Silver " + silverKeys);
     }
 }
 
