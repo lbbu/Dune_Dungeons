@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 8119787085409333161}
   - component: {fileID: 2795858140818626457}
   - component: {fileID: 3100006338228205794}
+  - component: {fileID: 356703670705096741}
   m_Layer: 8
   m_Name: Melee Zombie
   m_TagString: Enemy
@@ -239,13 +240,13 @@ Transform:
   m_GameObject: {fileID: 1652846814599529891}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.68}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.0783, y: 2.0783, z: 2.0783}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5671039624551533829}
   - {fileID: 4555114540964421507}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8119787085409333161
 MonoBehaviour:
@@ -280,7 +281,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -307,6 +308,27 @@ MonoBehaviour:
   healthBar: {fileID: 4807286811932970661}
   maxHealth: 100
   currentHealth: 100
+--- !u!65 &356703670705096741
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652846814599529891}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.811065, y: 3.954021, z: 1.195104}
+  m_Center: {x: 0.040778376, y: 1.4770111, z: 0.35838887}
 --- !u!1 &1902670631346716188
 GameObject:
   m_ObjectHideFlags: 0
