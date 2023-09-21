@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
 
     public static Player Instance { get; private set; }
 
+    [SerializeField]   int RoomNumber = 1;
+
     private void Awake()
     {
         Instance = this;
@@ -17,4 +19,13 @@ public class Player : MonoBehaviour
         return Instance.transform.position;
     }
 
+    public  void SetDetectdRoomNumber(int CurrentRoomNum)
+    {
+        RoomNumber = CurrentRoomNum;
+    }
+
+    public int GetDetectdRoomNumber()
+    {
+       return RoomNumber;
+    }
 }
