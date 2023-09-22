@@ -5,14 +5,14 @@ using UnityEngine;
 public class EnemyAttackM7MD : MonoBehaviour
 {
 
-    Collider otherCollider;
+    PlayerHealth playerHealth;
 
     Player player;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = null;
     }
 
     // Update is called once per frame
@@ -24,18 +24,18 @@ public class EnemyAttackM7MD : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<Player>())
-        otherCollider = other;
+        if (other.gameObject.GetComponent<PlayerHealth>())
+            playerHealth = other.gameObject.GetComponent<PlayerHealth>();
 
-        
+
+
     }
 
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.gameObject.GetComponent<Player>())
-            otherCollider = null;
-
+        if (other.gameObject.GetComponent<PlayerHealth>())
+            playerHealth = null;
 
     }
 
@@ -43,11 +43,10 @@ public class EnemyAttackM7MD : MonoBehaviour
     public void MakaDamage()
     {
 
-        if(otherCollider)
+       if(playerHealth != null)
         {
-            otherCollider.gameObject.GetComponent<PlayerHealth>().TakeDamage(20);
+            playerHealth.TakeDamage(20);
         }
-
     }
 
 

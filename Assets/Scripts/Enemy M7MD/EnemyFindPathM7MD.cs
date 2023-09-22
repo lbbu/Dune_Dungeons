@@ -37,7 +37,7 @@ public class EnemyFindPathM7MD : MonoBehaviour
             player = FindObjectOfType<Player>();
 
         if(!animator)
-            animator = GetComponent<Animator>();
+            animator = FindObjectOfType<EnemyAttackM7MD>().GetComponent<Animator>();
 
         if(!enemyNavMeshAgent)
             enemyNavMeshAgent = GetComponent<NavMeshAgent>();
