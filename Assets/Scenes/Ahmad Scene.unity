@@ -867,6 +867,55 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1540429815}
   m_SourcePrefab: {fileID: 100100000, guid: 6f79c9c9d5d9ca246b59201ef113e50a, type: 3}
+--- !u!1 &544756930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 544756931}
+  - component: {fileID: 544756932}
+  m_Layer: 0
+  m_Name: CameraParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &544756931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544756930}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.9777355, y: 13.86821, z: -27.194489}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1491252301}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &544756932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544756930}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fc9aa902c0eda46949145a841ca570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minZoomRatio: 0
+  maxZoomRatio: 0
+  minZoom: {x: 0, y: 0, z: 0}
+  maxZoom: {x: 0, y: 0, z: 0}
 --- !u!4 &636456101 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6f79c9c9d5d9ca246b59201ef113e50a, type: 3}
@@ -1939,13 +1988,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491252298}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.20000076, y: 93.29999, z: -20.300003}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 7.1777363, y: 79.43178, z: 6.8944855}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 544756931}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1491252302
 MonoBehaviour:
@@ -2026,6 +2075,7 @@ MonoBehaviour:
   CurrentCM:
   - {fileID: 13769354}
   - {fileID: 1534740156}
+  cameraToFollow: {fileID: 1491252301}
 --- !u!1 &1534740155
 GameObject:
   m_ObjectHideFlags: 0
