@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class SwitchCameraLevel : MonoBehaviour
 {
-    [SerializeField]  Player player;
+     [SerializeField] private Player player;
+   
+
     [SerializeField] int NumberOfRooms;
     [SerializeField] CinemachineVirtualCamera[] CurrentCM;
     int Current_CM_Index = 0;
     int Pre_CM_Index = 0;
+
+    [SerializeField] private Transform cameraToFollow;//by Zaid.
 
     private void Start()
     {
@@ -24,10 +28,19 @@ public class SwitchCameraLevel : MonoBehaviour
             Debug.Log("Pre " + Pre_CM_Index + "  post " + Current_CM_Index);
            changeCamByOrder();
         }
-        
+        // Calling the CamFollow method.
+        CamFollow();
     }
 
-   
+    public void CamFollow()
+    {
+        Vector3 TargetPos =
+         new Vector3(transform.position.x, transform.position.y, player.transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, TargetPos, 1);
+    }
+
+
+
 
     private void changeCamByOrder()
     { 
