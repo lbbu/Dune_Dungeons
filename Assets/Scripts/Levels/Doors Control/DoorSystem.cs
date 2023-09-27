@@ -9,47 +9,39 @@ public class DoorSystem : MonoBehaviour
     [SerializeField]  string[] DoorKey = { "Gold", "Silver" };
     [SerializeField] int AmountOfKeys;
 
+    bool IsDoorOpend = false;
     //num 1 = gold // num 2 = silver
     int TypeOfKeyToDecrease= 0;
     
-    private void Start()
-    {
-
-    }
-    private void Update()
-    {
-        //if(TypeOfKeyToDecrease == 1)
-        //{
-        //    playerInventory.DecreaseGoldKeyNum(AmountOfKeys);
-        //    TypeOfKeyToDecrease = 0;
-
-
-        //}else if (TypeOfKeyToDecrease == 2)
-        //{
-        //    playerInventory.DecreaseSetSilverKeyNum(AmountOfKeys);
-        //    TypeOfKeyToDecrease = 0;
-        //}
-    }
+   
 
     private void OnTriggerEnter(Collider other)
     {
 
         
-            if (DoorKey[0]=="Gold" && playerInventory.GetGoldKeyNum() >=1)
+            if (DoorKey[0]=="Gold" && playerInventory.GetGoldKeyNum() >=AmountOfKeys && !IsDoorOpend)
             {
                 playerInventory.DecreaseGoldKeyNum(AmountOfKeys);
                 TypeOfKeyToDecrease = 1;
                 GetComponent<Animator>().SetTrigger("open");
-                Debug.Log("OnTriggerEnter!!! GOLD");
-            }
-            else if (DoorKey[0]== "Silver" && playerInventory.GetSilverKeyNum() >= 1)
-            {
-               playerInventory.DecreaseSetSilverKeyNum(AmountOfKeys);
-                TypeOfKeyToDecrease = 2;
-                GetComponent<Animator>().SetTrigger("open");
-                Debug.Log("OnTriggerEnter!!! SILVER");
 
+            IsDoorOpend = true;
             }
+            else if (DoorKey[0]== "Silver" && playerInventory.GetSilverKeyNum() >= AmountOfKeys && !IsDoorOpend)
+            {
+                playerInventory.DecreaseSetSilverKeyNum(AmountOfKeys);
+                TypeOfKeyToDecrease = 2;
+            GetComponent<Animator>().SetTrigger("open");
+
+            IsDoorOpend = true;
+        }else 
+        
+           if(IsDoorOpend)
+          {
+            GetComponent<Animator>().SetTrigger("open");
+
         }
+       
+    }
     
 }

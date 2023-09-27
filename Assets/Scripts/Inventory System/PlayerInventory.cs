@@ -22,14 +22,12 @@ public class PlayerInventory: MonoBehaviour
     public  void AddGoldKey()
     {
         Gkey.Add(new GoldeKeyBase());
-        Debug.Log(GoldKeys + " Gold");
     }
 
 
     public void AddSelverKey()
     {
         Skey.Add(new SelverKeyBase());
-        Debug.Log(silverKeys + " Selver");
     }
 
 
@@ -45,13 +43,11 @@ public class PlayerInventory: MonoBehaviour
     public void DecreaseGoldKeyNum(int amountOfKeys)
     {
         Gkey.RemoveAt(0);
-        Debug.Log("DEC GOLD "+ GoldKeys);
     }
     public void DecreaseSetSilverKeyNum(int amountOfKeys)
     {
         
         Skey.RemoveAt(0);
-        Debug.Log("DEC Silver " + silverKeys);
     }
 }
 
