@@ -7,7 +7,7 @@ public class StartMenu : MonoBehaviour
 {
    public void PlayGame()
     {
-        SceneManager.LoadScene(0);// we can just add the index of our game scene directly. SceneManager.GetActiveScene().buildIndex +
+        SceneManager.LoadScene(4);// we can just add the index of our game scene directly. SceneManager.GetActiveScene().buildIndex +
     }
     public void QuitGame()
     {
