@@ -16,8 +16,8 @@ public class FireEnemyFindPath : MonoBehaviour
     private float currentTime = 0;
 
     //Patroling
-    private float walkPointRange;
-    private bool walkPointSet;
+    [SerializeField] private float walkPointRange;
+    public bool walkPointSet;
     [SerializeField] private Vector3 walkPoint;
 
     const string IS_MOVING_ANIMATION = "isMoving";
@@ -54,8 +54,8 @@ public class FireEnemyFindPath : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        switch(state)
+
+        switch (state)
         {
             case State.Idle:
                 Idle();
@@ -99,12 +99,10 @@ public class FireEnemyFindPath : MonoBehaviour
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
-            agent.SetDestination(playerHealth.transform.position);
-
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+            agent.SetDestination(walkPoint);
 
         //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
+        if (Vector3.Distance(transform.position, walkPoint) <= 0.1f)
         {
             walkPointSet = false;
             /*
@@ -122,19 +120,28 @@ public class FireEnemyFindPath : MonoBehaviour
 
         walkPoint = new Vector3(transform.position.x + randomX, 0f, transform.position.z + randomZ);
 
-        RaycastHit[] objectsBelow = Physics.RaycastAll(walkPoint, -Vector3.up, 2f, whatIsGround);
+        RaycastHit[] objectsBelow = Physics.RaycastAll(walkPoint + new Vector3(0f, 4f, 0f), -transform.up, 5f, whatIsGround);
 
-        bool obstacleTest = true;
+        bool obstacleTest = false;
 
         foreach(RaycastHit objectBelow in objectsBelow)
         {
             if(objectBelow.collider.gameObject.layer == whatIsObstacle)
             {
                 obstacleTest = false;
+                break;
             }
-        }
 
-        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround) && obstacleTest)
+            if(objectBelow.collider.gameObject.layer == whatIsObstacle)
+            {
+                obstacleTest = true;
+            }
+            
+        }
+        
+        //if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
+
+        if(obstacleTest)
             walkPointSet = true;
     }
 
