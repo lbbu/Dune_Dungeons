@@ -19,7 +19,7 @@ public class FireEnemyFindPath : MonoBehaviour
 
     //Patroling
     [SerializeField] private float walkPointRange;
-    public bool walkPointSet;
+    bool walkPointSet;
     [SerializeField] private Vector3 walkPoint;
 
     const string IS_MOVING_ANIMATION = "isMoving";
