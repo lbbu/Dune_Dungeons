@@ -14,6 +14,8 @@ public class FireEnemyFindPath : MonoBehaviour
 
     [SerializeField] private float timeBetweenAttacks = 2f;
     private float currentTime = 0;
+    [SerializeField] private float enemyRotationSpeed = 10f;
+    private bool allowToRotate;
 
     //Patroling
     [SerializeField] private float walkPointRange;
@@ -55,6 +57,11 @@ public class FireEnemyFindPath : MonoBehaviour
     void Update()
     {
 
+        if(allowToRotate)
+        {
+            FaceTarget();
+        }
+
         switch (state)
         {
             case State.Idle:
@@ -87,6 +94,7 @@ public class FireEnemyFindPath : MonoBehaviour
         {
             state = State.Patroling;
             ActivateAnimation(IS_MOVING_ANIMATION);
+            currentTime = 0;
         }
 
     }
@@ -101,14 +109,24 @@ public class FireEnemyFindPath : MonoBehaviour
         if (walkPointSet)
             agent.SetDestination(walkPoint);
 
+        currentTime += Time.deltaTime;
+        if(currentTime >= 2)
+        {
+            walkPointSet = false;
+
+            state = State.AttackTarget;
+            ActivateAnimation(IS_ATTACKING_ANIMATION);
+            currentTime = 0;
+        }
+
         //Walkpoint reached
         if (Vector3.Distance(transform.position, walkPoint) <= 0.1f)
         {
             walkPointSet = false;
-            /*
+            
             state = State.AttackTarget;
             ActivateAnimation(IS_ATTACKING_ANIMATION);
-            */
+            currentTime = 0;
         }
 
     }
@@ -120,28 +138,7 @@ public class FireEnemyFindPath : MonoBehaviour
 
         walkPoint = new Vector3(transform.position.x + randomX, 0f, transform.position.z + randomZ);
 
-        RaycastHit[] objectsBelow = Physics.RaycastAll(walkPoint + new Vector3(0f, 4f, 0f), -transform.up, 5f, whatIsGround);
-
-        bool obstacleTest = false;
-
-        foreach(RaycastHit objectBelow in objectsBelow)
-        {
-            if(objectBelow.collider.gameObject.layer == whatIsObstacle)
-            {
-                obstacleTest = false;
-                break;
-            }
-
-            if(objectBelow.collider.gameObject.layer == whatIsObstacle)
-            {
-                obstacleTest = true;
-            }
-            
-        }
-        
-        //if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
-
-        if(obstacleTest)
+        if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
     }
 
@@ -160,6 +157,23 @@ public class FireEnemyFindPath : MonoBehaviour
 
         state = State.Idle;
         ActivateAnimation(IDLE_ANIMATION);
+
+        allowToRotate = false;
+    }
+
+    public void StartAttack()
+    {
+        allowToRotate = true;
+    }
+
+    void FaceTarget()
+    {
+        Vector3 direction = (playerHealth.transform.position - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        Quaternion test = Quaternion.Slerp(transform.rotation, lookRotation, enemyRotationSpeed * Time.deltaTime);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, test, enemyRotationSpeed * Time.deltaTime);
+
     }
 
 }
