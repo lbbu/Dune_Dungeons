@@ -28,14 +28,13 @@ public class PlayerWeapon : MonoBehaviour
     Transform closestEnemy;
     List<Transform> nearbyEnemies = new List<Transform>();
     [SerializeField] GameObject AllEnemys;
-    float detectionRange = 10f;
-    [SerializeField] float sightRange = 14f;
 
-   
+
 
     void Update()
     {
-        UpdateNearbyEnemies();
+
+        nearbyEnemies = facingEnemy.nearbyEnemies;
        isListEmpty = facingEnemy.GetIsEmptyListOfEnemys();
         isWalking = PlayerMovement.IsWalking();
         ShootAction();
@@ -74,45 +73,12 @@ public class PlayerWeapon : MonoBehaviour
 
     bool CanShoot()
     {
-       
+
         return
              isActive
             && !isWalking
             && !isListEmpty
-            && closestEnemy != null;
-    }
-
-    void UpdateNearbyEnemies()
-    {
-        nearbyEnemies.Clear();
-
-        foreach (Transform enemy in AllEnemys.transform)
-        {
-            float distance = Vector3.Distance(enemy.position, transform.position);
-            if (distance <= detectionRange)
-            {
-                nearbyEnemies.Add(enemy);
-            }
-        }
-
-        
-        FindClosestEnemy();
-    }
-
-    void FindClosestEnemy()
-    {
-        float closestDistance = Mathf.Infinity;
-        closestEnemy = null;
-
-        foreach (Transform enemy in AllEnemys.transform)
-        {
-            float distance = Vector3.Distance(enemy.position, transform.position);
-            if (distance < closestDistance && distance <= sightRange)
-            {
-                closestDistance = distance;
-                closestEnemy = enemy;
-            }
-        }
+            && facingEnemy.closestEnemy != null;
     }
 
     public bool GetIsEmptyListOfEnemys()

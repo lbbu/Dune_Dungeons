@@ -10,10 +10,10 @@ public class FacingEnemy : MonoBehaviour
     [SerializeField] GameObject AllEnemys;
     [SerializeField] float sightRange = 14f;
     bool isFacingEnemy = false;
-    Transform closestEnemy;
+    public Transform closestEnemy;
     int num;
-    List<Transform> nearbyEnemies = new List<Transform>();
-    float detectionRange = 10f;
+     public List<Transform> nearbyEnemies = new List<Transform>();
+    public float detectionRange = 10f;
 
     void Start()
     {
@@ -45,10 +45,9 @@ public class FacingEnemy : MonoBehaviour
         foreach (Transform enemy in AllEnemys.transform) // Make sure to use Enemy.transform to access child transforms
         {
             float distance = Vector3.Distance(enemy.position, transform.position);
-            if (distance <= detectionRange)
-            {
+            
                 nearbyEnemies.Add(enemy);
-            }
+            
         }
 
         FindClosestEnemy();
@@ -56,13 +55,12 @@ public class FacingEnemy : MonoBehaviour
     void faceTarget()
         {
             // num =   getRandomNumber();
-            if (distanceToTarget <= sightRange)
-            {
+            
                 isFacingEnemy = true;
                 Vector3 direction = (closestEnemy.position - transform.position).normalized;
                 Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
                 transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 6);
-            }
+            
         }
 
         void FindClosestEnemy()
@@ -73,7 +71,7 @@ public class FacingEnemy : MonoBehaviour
             foreach (Transform enemy in AllEnemys.transform)
             {
                 float distance = Vector3.Distance(enemy.position, transform.position);
-                if (distance < closestDistance && distance <= sightRange)
+                if (distance < closestDistance && distance<= detectionRange)
                 {
                     closestDistance = distance;
                     closestEnemy = enemy;
