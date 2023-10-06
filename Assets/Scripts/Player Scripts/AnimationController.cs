@@ -49,7 +49,7 @@ public class AnimationController : MonoBehaviour
         if(weapons[SelectedWeapon].GetComponent<PlayerWeapon>().GetIsEmptyListOfEnemys())
         {
            GetComponent<Animator>().SetBool("vectory", true);
-           GetComponent<Animator>().SetBool("idle", false );
+           GetComponent<Animator>().SetBool("idle", true );
 
         }
         else
