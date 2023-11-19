@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 8119787085409333161}
   - component: {fileID: 2795858140818626457}
   - component: {fileID: 3100006338228205794}
+  - component: {fileID: 256579638211741936}
   - component: {fileID: 356703670705096741}
   m_Layer: 8
   m_Name: Melee Zombie
@@ -271,6 +272,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
+  playerInSightRange: 25
 --- !u!195 &2795858140818626457
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -281,7 +283,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 9
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -308,6 +310,18 @@ MonoBehaviour:
   healthBar: {fileID: 4807286811932970661}
   maxHealth: 100
   currentHealth: 100
+--- !u!114 &256579638211741936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652846814599529891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37620563d86e81043a8c0d9c52d67838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &356703670705096741
 BoxCollider:
   m_ObjectHideFlags: 0

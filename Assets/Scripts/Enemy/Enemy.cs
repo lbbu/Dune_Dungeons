@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour, IEnemy
 {
-    [SerializeField] EnemyHealth enemyHealth;
+     EnemyHealth enemyHealth;
 
-    
+    private void Start()
+    {
+        enemyHealth = this.GetComponent<EnemyHealth>();
+    }
     private void Update()
     {
         HandleEnemyDeath();

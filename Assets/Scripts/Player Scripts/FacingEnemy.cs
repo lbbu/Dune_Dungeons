@@ -14,10 +14,10 @@ public class FacingEnemy : MonoBehaviour
     int num;
      public List<Transform> nearbyEnemies = new List<Transform>();
     public float detectionRange = 10f;
-
+    [SerializeField] Player player;
     void Start()
     {
-        
+        player = GetComponent<Player>();
     }
 
     void Update()
@@ -42,6 +42,8 @@ public class FacingEnemy : MonoBehaviour
     {
         nearbyEnemies.Clear();
 
+        int i = player.GetDetectdRoomNumber();
+       
         foreach (Transform enemy in AllEnemys.transform) // Make sure to use Enemy.transform to access child transforms
         {
             float distance = Vector3.Distance(enemy.position, transform.position);
@@ -67,11 +69,12 @@ public class FacingEnemy : MonoBehaviour
         {
             float closestDistance = Mathf.Infinity;
             closestEnemy = null;
+        int i = player.GetDetectdRoomNumber();
 
-            foreach (Transform enemy in AllEnemys.transform)
+        foreach (Transform enemy in AllEnemys.transform)
             {
                 float distance = Vector3.Distance(enemy.position, transform.position);
-                if (distance < closestDistance && distance<= detectionRange)
+                if (distance < closestDistance && distance <= detectionRange)
                 {
                     closestDistance = distance;
                     closestEnemy = enemy;

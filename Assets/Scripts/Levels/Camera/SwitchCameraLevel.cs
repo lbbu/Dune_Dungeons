@@ -28,7 +28,7 @@ public class SwitchCameraLevel : MonoBehaviour
             Debug.Log("Pre " + Pre_CM_Index + "  post " + Current_CM_Index);
            changeCamByOrder();
         }
-        // Calling the CamFollow method.
+        
         CamFollow();
     }
 
@@ -43,10 +43,16 @@ public class SwitchCameraLevel : MonoBehaviour
 
 
     private void changeCamByOrder()
-    { 
-      
-       
-         CurrentCM[Pre_CM_Index].gameObject.SetActive(false);
-        CurrentCM[Current_CM_Index].gameObject.SetActive(true);
+    {
+        try
+        {
+
+            CurrentCM[Pre_CM_Index].gameObject.SetActive(false);
+            CurrentCM[Current_CM_Index].gameObject.SetActive(true);
+        }
+        catch
+        {
+
+        }
     }
 }

@@ -30,27 +30,25 @@ public class PlayerMovements : MonoBehaviour
     {
         return moveSpeed;
     }
-   
 
-    // Update is called once per frame
     void Update()
     {
-        /*
-        float inputX = Input.GetAxis("Horizontal");
-        float newPosition = transform.position.x + inputX * moveSpeed * Time.deltaTime;
-        newPosition = Mathf.Clamp(newPosition, minX, maxX);
-        transform.position = new Vector3(newPosition, transform.position.y, transform.position.z);
-                         // ==> These lines constrains the player's movement on the X-axis between the minX and maxX limits.
-        */
+        //float inputX = Input.GetAxis("Horizontal");
+        //float inputY = Input.GetAxis("Vertical");
 
-        // HandleMovements();
+        //Vector2 inputVector = new Vector2(inputX, inputY).normalized;
+        //float tempSpeed = moveSpeed;
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    SetMoveSpeed(17);
+        //}
+        //else
+        //    SetMoveSpeed(14);
 
 
-        // Debug.Log(gameInput.GetInputVectorNormalized());
 
+        
     }
-
-
 
     public void HandleMovements(Vector2 inputVector)
     {
@@ -60,6 +58,7 @@ public class PlayerMovements : MonoBehaviour
         Vector3 moveDir = new Vector3(inputVector.x, 0, inputVector.y);
 
         isWalking = moveDir != Vector3.zero;
+
 
         float moveDistance = moveSpeed * Time.deltaTime;
 

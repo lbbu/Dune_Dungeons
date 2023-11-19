@@ -1,11 +1,10 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyFindPathM7MD : MonoBehaviour
 {
+    float distance;
     [Header("Objects")]
     [SerializeField] Player player;
     [SerializeField] Animator animator;
@@ -14,9 +13,10 @@ public class EnemyFindPathM7MD : MonoBehaviour
     [Header("Information")]
     [SerializeField] private float enemyRotationSpeed = 10f;
     [SerializeField] private float attackRange = 2f;
-    [SerializeField] private LayerMask whatIsGround, whatIsPlayer;
+    [SerializeField] private LayerMask whatIsPlayer;
 
-    private bool playerInSightRange, playerInAttackRange;
+    [SerializeField] private float playerInSightRange;
+    bool playerInAttackRange;
 
     const string IS_MOVING_ANIMATION = "isMoving";
     const string IS_ATTACKING_ANIMATION = "isAttacking";
@@ -36,119 +36,103 @@ public class EnemyFindPathM7MD : MonoBehaviour
         if (!player)
             player = FindObjectOfType<Player>();
 
-        if(!animator)
-            animator = FindObjectOfType<EnemyAttackM7MD>().GetComponent<Animator>();
+        if (!animator)
+            animator = GetComponent<Animator>(); // Changed to get the animator from the current object.
 
-        if(!enemyNavMeshAgent)
+        if (!enemyNavMeshAgent)
             enemyNavMeshAgent = GetComponent<NavMeshAgent>();
-        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
         state = State.Idle;
-        animator.SetBool(IDLE_ANIMATION, true);
-
+        SetAnimation(IDLE_ANIMATION);
     }
 
     // Update is called once per frame
     void Update()
     {
+        distance = Vector3.Distance(player.transform.position, transform.position);
 
-        switch(state)
+        switch (state)
         {
             case State.Idle:
-
-                Idle();
-
+                if (distance < playerInSightRange)
+                    SetState(State.ChaseTarget);
                 break;
 
             case State.ChaseTarget:
-
                 ChasePlayer();
-
-                break; 
+                break;
 
             case State.AttackTarget:
-
                 AttackPlayer();
-
                 break;
 
-            default: 
-
+            default:
                 break;
         }
-
     }
 
-    private void Idle()
+    private void SetState(State newState)
     {
+        if (state != newState)
+        {
+            state = newState;
 
-        //wait for 1 sec then
+            switch (state)
+            {
+                case State.Idle:
+                    SetAnimation(IDLE_ANIMATION);
+                    break;
 
+                case State.ChaseTarget:
+                    SetAnimation(IS_MOVING_ANIMATION);
+                    break;
 
-
-        state = State.ChaseTarget;
-        //go from idle animation to run animation
-        animator.SetBool(IDLE_ANIMATION, false);
-        animator.SetBool(IS_MOVING_ANIMATION, true);
-
-
-
+                case State.AttackTarget:
+                    SetAnimation(IS_ATTACKING_ANIMATION);
+                    break;
+            }
+        }
     }
 
     private void ChasePlayer()
     {
-
-
         enemyNavMeshAgent.SetDestination(player.transform.position);
-
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange / 1.5f, whatIsPlayer);
-        
+
         if (playerInAttackRange)
         {
-            state = State.AttackTarget;
-            //go from run animation to attack animation
-            animator.SetBool(IS_MOVING_ANIMATION, false);
-            animator.SetBool(IS_ATTACKING_ANIMATION, true);
+            SetState(State.AttackTarget);
         }
-        
     }
 
     void FaceTarget()
-    {        
+    {
         Vector3 direction = (player.transform.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-        Quaternion test = Quaternion.Slerp(transform.rotation, lookRotation, enemyRotationSpeed * Time.deltaTime);
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, test, enemyRotationSpeed * Time.deltaTime);
-
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, enemyRotationSpeed * Time.deltaTime);
     }
 
     private void AttackPlayer()
     {
-
         enemyNavMeshAgent.SetDestination(transform.position);
         FaceTarget();
-
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange * 1.1f, whatIsPlayer);
 
         if (!playerInAttackRange)
         {
-
-            state = State.ChaseTarget;
-            //go from attack animation to run animation
-            animator.SetBool(IS_MOVING_ANIMATION, true);
-            animator.SetBool(IS_ATTACKING_ANIMATION, false);
-
-
-
-
+            SetState(State.ChaseTarget);
         }
+    }
 
+    private void SetAnimation(string animationName)
+    {
+        animator.SetBool(IDLE_ANIMATION, animationName == IDLE_ANIMATION);
+        animator.SetBool(IS_MOVING_ANIMATION, animationName == IS_MOVING_ANIMATION);
+        animator.SetBool(IS_ATTACKING_ANIMATION, animationName == IS_ATTACKING_ANIMATION);
     }
 
     private void OnDrawGizmosSelected()
@@ -156,5 +140,4 @@ public class EnemyFindPathM7MD : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
-
 }

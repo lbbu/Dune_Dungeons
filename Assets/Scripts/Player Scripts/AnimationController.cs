@@ -36,6 +36,8 @@ public class AnimationController : MonoBehaviour
             else
             {
                 GetComponent<Animator>().SetBool("shoot", false);
+                GetComponent<Animator>().SetBool("idle", true);
+
             }
         }
         

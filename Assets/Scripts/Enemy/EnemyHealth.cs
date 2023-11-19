@@ -56,9 +56,8 @@ public class EnemyHealth : MonoBehaviour,IEnemy, IHealth
             //Enemy Dye
             Debug.Log("Enemy Dye");
             healthBar.SetHealth(currentHealth);
-
             isDead = true;
-           
+           //Destroy(gameObject);
            // ScoreManager.Instance.IncrementScore();
         }
         else
